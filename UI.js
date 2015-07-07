@@ -2474,7 +2474,7 @@ function DEControlsModel() {
             validate(invalidateList, 'showColorCountDialog');
         }
         if (isInvalid(invalidateList, 'showShareLink') && model.showShareLink) {
-            self.shareLink(window.location.href + model.shareLink);
+            self.shareLink(model.shareLink);
             showShareLink();
             validate(invalidateList, 'shareLink');
             validate(invalidateList, 'showShareLink');

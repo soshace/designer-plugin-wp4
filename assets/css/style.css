@@ -531,6 +531,8 @@ input, select, button, textarea {
 
 #products-tab .products-list ul {
     list-style: none;
+    max-height: 415px;
+    overflow: auto;
 }
 
 #products-tab .products-list li {
@@ -728,6 +730,8 @@ input, select, button, textarea {
 
 #graphics-tab .graphics-list ul {
     list-style: none;
+    max-height: 415px;
+    overflow: auto;
 }
 
 #graphics-tab .graphics-list li {
@@ -1081,7 +1085,7 @@ input, select, button, textarea {
 
 #numbers-tab .order-sheet-list {
     overflow: auto;
-    max-height: 280px;
+    max-height: 298px;
 }
 
 #numbers-tab li {
@@ -1098,6 +1102,7 @@ input, select, button, textarea {
 }
 
 #numbers-tab ol > li {
+    list-style: none;
     height: 30px;
     margin: 3px 0;
 }
@@ -1214,7 +1219,7 @@ input, select, button, textarea {
 #product-sizes-tab .product-sizes-list {
     margin: 0 0 10px 0;
     overflow: auto;
-    max-height: 280px;
+    max-height: 265px;
 }
 
 #product-sizes-tab li {
@@ -1344,7 +1349,7 @@ input, select, button, textarea {
 #product-sizes-tab .order-total {
     position: absolute;
     left: 12px;
-    bottom: 20px;
+    bottom: 25px;
 }
 
 #product-sizes-tab .order-total ul {
@@ -1429,8 +1434,10 @@ input, select, button, textarea {
 #share-design-tab textarea {
     font: 12px Raleway;
     width: 295px;
-    height: 80px;
+    height: 60px;
     color: #3F3F3F;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 /*Share design tabs ends here*/
