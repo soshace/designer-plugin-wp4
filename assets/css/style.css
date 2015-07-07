@@ -531,7 +531,7 @@ input, select, button, textarea {
 
 #products-tab .products-list ul {
     list-style: none;
-    max-height: 415px;
+    max-height: 410px;
     overflow: auto;
 }
 
@@ -730,7 +730,7 @@ input, select, button, textarea {
 
 #graphics-tab .graphics-list ul {
     list-style: none;
-    max-height: 415px;
+    max-height: 410px;
     overflow: auto;
 }
 
