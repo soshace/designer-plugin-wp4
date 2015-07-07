@@ -1,0 +1,1 @@
+[16-Jun-2015 10:50:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/zemsapparel/public_html/wp-content/plugins/designer/getTextZ.php:150) in /home/zemsapparel/public_html/wp-content/plugins/designer/getTextZ.php on line 157

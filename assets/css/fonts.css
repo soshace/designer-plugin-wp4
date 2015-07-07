@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "zemsfonts";
+  src:url("../fonts/zemsfonts.eot");
+  src:url("../fonts/zemsfonts.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/zemsfonts.woff") format("woff"),
+    url("../fonts/zemsfonts.ttf") format("truetype"),
+    url("../fonts/zemsfonts.svg#zemsfonts") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "zemsfonts" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "zemsfonts" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cart:before {
+  content: "a";
+}
+.icon-cart-rev:before {
+  content: "b";
+}
+.icon-colour:before {
+  content: "c";
+}
+.icon-colour-rev:before {
+  content: "d";
+}
+.icon-design:before {
+  content: "e";
+}
+.icon-design-rev:before {
+  content: "f";
+}
+.icon-images:before {
+  content: "g";
+}
+.icon-images-rev:before {
+  content: "h";
+}
+.icon-item:before {
+  content: "i";
+}
+.icon-item-rev:before {
+  content: "j";
+}
+.icon-options:before {
+  content: "k";
+}
+.icon-options-rev:before {
+  content: "l";
+}
+.icon-personalise:before {
+  content: "m";
+}
+.icon-personalise-rev:before {
+  content: "n";
+}
+.icon-quantity:before {
+  content: "o";
+}
+.icon-quantity-rev:before {
+  content: "p";
+}
+.icon-text:before {
+  content: "q";
+}
+.icon-text-rev:before {
+  content: "r";
+}
+.icon-add:before {
+  content: "s";
+}
+.icon-alignc:before {
+  content: "t";
+}
+.icon-alignl:before {
+  content: "u";
+}
+.icon-alignr:before {
+  content: "v";
+}
+.icon-bold:before {
+  content: "w";
+}
+.icon-crop:before {
+  content: "x";
+}
+.icon-downarrow:before {
+  content: "y";
+}
+.icon-downarrow-rev:before {
+  content: "z";
+}
+.icon-exit-rev:before {
+  content: "A";
+}
+.icon-fliphorizontal:before {
+  content: "B";
+}
+.icon-flipvertical:before {
+  content: "C";
+}
+.icon-italic:before {
+  content: "D";
+}
+.icon-leftright:before {
+  content: "E";
+}
+.icon-more:before {
+  content: "F";
+}
+.icon-more-rev:before {
+  content: "G";
+}
+.icon-next:before {
+  content: "H";
+}
+.icon-remove:before {
+  content: "I";
+}
+.icon-remove-rev:before {
+  content: "J";
+}
+.icon-rotatel:before {
+  content: "K";
+}
+.icon-rotater:before {
+  content: "L";
+}
+.icon-tick-rev:before {
+  content: "M";
+}
+.icon-updown:before {
+  content: "N";
+}
+.icon-wand:before {
+  content: "O";
+}
+.icon-athletics:before {
+  content: "P";
+}
+.icon-athletics-rev:before {
+  content: "Q";
+}
+.icon-basketball:before {
+  content: "R";
+}
+.icon-basketball-rev:before {
+  content: "S";
+}
+.icon-cricket:before {
+  content: "T";
+}
+.icon-kidsmens:before {
+  content: "U";
+}
+.icon-kidsmens-rev:before {
+  content: "V";
+}
+.icon-netball:before {
+  content: "W";
+}
+.icon-netball-rev:before {
+  content: "X";
+}
+.icon-rugbyleague:before {
+  content: "Y";
+}
+.icon-rugbyleague-rev:before {
+  content: "Z";
+}
+.icon-schoolleavers:before {
+  content: "0";
+}
+.icon-schoolleavers-rev:before {
+  content: "1";
+}
+.icon-soccer:before {
+  content: "2";
+}
+.icon-womens:before {
+  content: "3";
+}
+.icon-womens-rev:before {
+  content: "4";
+}

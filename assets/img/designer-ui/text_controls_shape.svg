@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW Home & Student 2014 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1380px" height="60px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1380 60"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil4 {fill:none}
+    .fil3 {fill:#7B7B7B}
+    .fil1 {fill:#C8C8C8}
+    .fil5 {fill:#D61723}
+    .fil2 {fill:white}
+    .fil0 {fill:#C8C8C8;fill-rule:nonzero}
+    .fil6 {fill:#D61723;fill-rule:nonzero}
+    .fil7 {fill:white;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_481582640">
+   <g>
+    <g>
+     <path class="fil0" d="M1238 21c0,0 0,1 0,1 0,1 -1,0 -2,0l-6 -7 -6 7c-1,0 -1,1 -2,0 0,0 0,-1 0,-1l7 -8 1 0 1 0 7 8z"/>
+     <path class="fil0" d="M1229 14c0,-1 0,-1 1,-1 1,0 1,0 1,1l0 13 0 8 0 11c0,1 0,1 -1,1 -1,0 -1,0 -1,-1l0 -11 0 -8 0 -13z"/>
+     <path class="fil0" d="M1236 38c1,0 2,0 2,0 0,0 0,1 0,2l-7 7 -1 0 -1 0 -7 -7c0,-1 0,-2 0,-2 0,0 1,0 2,0l6 7 6 -7z"/>
+    </g>
+    <g>
+     <path class="fil0" d="M1180 38c-1,0 -2,0 -2,0 0,0 0,-1 0,-1l7 -7 -7 -7c0,0 0,-1 0,-1 0,0 1,0 2,0l7 7 0 1 0 1 -7 7z"/>
+     <path class="fil0" d="M1162 37c0,0 0,1 0,1 -1,0 -1,0 -2,0l-7 -7 0 -1 0 -1 7 -7c1,0 2,0 2,0 0,0 0,1 0,1l-7 7 7 7z"/>
+     <path class="fil0" d="M1154 31c-1,0 -1,-1 -1,-1 0,-1 0,-1 1,-1l10 0 11 0 11 0c1,0 1,0 1,1 0,0 0,1 -1,1l-11 0 -11 0 -10 0z"/>
+    </g>
+    <g>
+     <polygon class="fil0" points="1126,12 1126,48 1124,48 1124,12 "/>
+     <polygon class="fil0" points="1119,18 1119,48 1117,48 1117,18 "/>
+     <polygon class="fil0" points="1111,24 1111,48 1109,48 1109,24 "/>
+     <polygon class="fil0" points="1103,30 1103,48 1101,48 1101,30 "/>
+     <polygon class="fil0" points="1096,36 1096,48 1094,48 1094,36 "/>
+    </g>
+    <rect class="fil1" x="1320" width="60.0021" height="60.0014"/>
+    <circle class="fil2" cx="1337" cy="30" r="3"/>
+    <circle class="fil2" cx="1350" cy="30" r="3"/>
+    <circle class="fil2" cx="1364" cy="30" r="3"/>
+    <path class="fil3" d="M1290 7c13,0 23,10 23,23 0,13 -10,23 -23,23 -13,0 -23,-10 -23,-23 0,-13 10,-23 23,-23m0 -1c-13,0 -24,11 -24,24 0,13 11,24 24,24 13,0 24,-11 24,-24 0,-13 -11,-24 -24,-24l0 0z"/>
+    <rect class="fil4" x="1260" width="60.0021" height="60.0014"/>
+    <rect class="fil4" x="1200" width="60.0021" height="60.0014"/>
+    <rect class="fil4" x="1140" width="60.0021" height="60.0014"/>
+    <rect class="fil4" x="1080" width="60.0021" height="60.0014"/>
+   </g>
+   <g>
+    <g>
+     <path class="fil1" d="M660 18c-8,-3 -19,-4 -33,0 -14,4 -24,-1 -27,-3l0 20c3,1 6,2 9,2 7,1 15,1 23,-2 15,-4 25,0 28,2l0 -19z"/>
+     <rect class="fil4" x="600" width="60" height="60"/>
+     <polygon class="fil1" points="557,37 583,37 600,16 540,16 "/>
+     <rect class="fil4" x="540" width="60" height="60"/>
+     <path class="fil1" d="M480 33c0,0 15,10 30,10 15,0 30,-10 30,-10l0 -14c0,0 -15,-9 -30,-9 -15,0 -30,9 -30,9l0 14z"/>
+     <rect class="fil4" x="480" width="60" height="60"/>
+     <path class="fil1" d="M420 33c0,0 15,7 30,7 15,0 30,-7 30,-7l0 -19c0,0 -15,7 -30,7 -15,0 -30,-7 -30,-7l0 19z"/>
+     <rect class="fil4" x="420" width="60" height="60"/>
+     <rect class="fil4" x="360" width="60" height="60"/>
+     <path class="fil1" d="M420 20c0,0 -15,-7 -30,-7 -15,0 -30,7 -30,7l0 19c0,0 15,-7 30,-7 15,0 30,7 30,7l0 -19z"/>
+     <rect class="fil4" x="300" width="60" height="60"/>
+     <path class="fil0" d="M315 16c0,4 2,7 4,10 3,3 7,5 11,5 4,0 8,-2 11,-5 2,-3 4,-6 4,-10l14 0c0,8 -4,15 -9,20 -5,5 -12,8 -20,8 -8,0 -15,-3 -20,-8 -5,-5 -9,-12 -9,-20l14 0z"/>
+     <rect class="fil4" x="240" width="60" height="60"/>
+     <path class="fil0" d="M285 44c0,-4 -2,-7 -4,-10 -3,-3 -7,-5 -11,-5 -4,0 -8,2 -11,5 -2,3 -4,6 -4,10l-14 0c0,-8 4,-15 9,-20 5,-5 12,-8 20,-8 8,0 15,3 20,8 5,5 9,12 9,20l-14 0z"/>
+    </g>
+    <g>
+     <path class="fil5" d="M1080 18c-8,-3 -19,-4 -33,0 -14,4 -24,-1 -27,-3l0 20c3,1 6,2 9,2 7,1 15,1 23,-2 15,-4 25,0 28,2l0 -19z"/>
+     <rect class="fil4" x="1020" width="60" height="60"/>
+     <polygon class="fil5" points="977,37 1003,37 1020,16 960,16 "/>
+     <rect class="fil4" x="960" width="60" height="60"/>
+     <path class="fil5" d="M900 33c0,0 15,10 30,10 15,0 30,-10 30,-10l0 -14c0,0 -15,-9 -30,-9 -15,0 -30,9 -30,9l0 14z"/>
+     <rect class="fil4" x="900" width="60" height="60"/>
+     <path class="fil5" d="M840 33c0,0 15,7 30,7 15,0 30,-7 30,-7l0 -19c0,0 -15,7 -30,7 -15,0 -30,-7 -30,-7l0 19z"/>
+     <rect class="fil4" x="840" width="60" height="60"/>
+     <rect class="fil4" x="780" width="60" height="60"/>
+     <path class="fil5" d="M840 20c0,0 -15,-7 -30,-7 -15,0 -30,7 -30,7l0 19c0,0 15,-7 30,-7 15,0 30,7 30,7l0 -19z"/>
+     <rect class="fil4" x="720" width="60" height="60"/>
+     <path class="fil6" d="M735 16c0,4 2,7 4,10 3,3 7,5 11,5 4,0 8,-2 11,-5 2,-3 4,-6 4,-10l14 0c0,8 -4,15 -9,20 -5,5 -12,8 -20,8 -8,0 -15,-3 -20,-8 -5,-5 -9,-12 -9,-20l14 0z"/>
+     <rect class="fil4" x="660" width="60" height="60"/>
+     <path class="fil6" d="M705 44c0,-4 -2,-7 -4,-10 -3,-3 -7,-5 -11,-5 -4,0 -8,2 -11,5 -2,3 -4,6 -4,10l-14 0c0,-8 4,-15 9,-20 5,-5 12,-8 20,-8 8,0 15,3 20,8 5,5 9,12 9,20l-14 0z"/>
+    </g>
+   </g>
+   <g>
+    <rect class="fil5" x="120" width="60.001" height="60.0009"/>
+    <path class="fil2" d="M137 47l-7 0 3 -18 -3 0 1 -5 3 0 1 -1c0,-3 1,-6 4,-8 1,-1 4,-2 6,-2 2,0 3,0 4,1l-1 5c-1,0 -2,0 -3,0 -2,0 -3,2 -4,4l0 1 5 0 -1 5 -5 0 -3 18zm21 0l-1 -4c-1,-1 -1,-2 -2,-4l0 0c0,1 -1,2 -2,4l-3 4 -8 0 10 -12 -5 -11 7 0 2 3c0,2 1,3 1,4l0 0c1,-1 2,-2 3,-3l2 -4 8 0 -10 11 6 12 -8 0 0 0z"/>
+    <rect class="fil2" x="60" width="59.016" height="59.0159"/>
+    <path class="fil0" d="M61 59l58 0 0 -58 -58 0 0 58zm59 1l-60 0 0 0 0 0 0 -60 0 0 0 0 60 0 0 0 0 0 0 60 0 0 0 0z"/>
+    <path class="fil0" d="M77 22c0,0 1,0 1,0 1,1 1,1 0,2l-6 6 6 7c1,0 1,1 0,1 0,0 -1,0 -1,0l-7 -7 -1 -1 1 -1 7 -7z"/>
+    <path class="fil0" d="M70 31c0,0 -1,0 -1,-1 0,-1 1,-1 1,-1l13 0c0,0 1,0 1,1 0,1 -1,1 -1,1l-13 0z"/>
+    <path class="fil0" d="M102 24c0,-1 0,-1 0,-2 0,0 1,0 1,0l7 7 1 1 -1 1 -7 7c0,0 -1,0 -1,0 0,0 0,-1 0,-1l6 -7 -6 -6z"/>
+    <path class="fil0" d="M110 29c0,0 1,0 1,1 0,1 -1,1 -1,1l-13 0c0,0 -1,0 -1,-1 0,-1 1,-1 1,-1l13 0z"/>
+    <path class="fil0" d="M98 17c0,0 0,1 0,1 0,1 -1,1 -1,0l-7 -6 -6 6c-1,1 -1,1 -2,0 0,0 0,-1 0,-1l7 -7 1 -1 1 1 7 7z"/>
+    <path class="fil0" d="M89 10c0,0 0,-1 1,-1 1,0 1,1 1,1l0 13c0,0 0,1 -1,1 -1,0 -1,-1 -1,-1l0 -13z"/>
+    <path class="fil0" d="M97 42c0,0 1,0 1,0 0,0 0,1 0,1l-7 7 -1 1 -1 -1 -7 -7c0,0 0,-1 0,-1 1,0 1,0 2,0l6 6 7 -6z"/>
+    <path class="fil0" d="M91 50c0,0 0,1 -1,1 -1,0 -1,-1 -1,-1l0 -13c0,0 0,-1 1,-1 1,0 1,1 1,1l0 13z"/>
+    <rect class="fil2" width="59.016" height="59.0159"/>
+    <path class="fil0" d="M1 59l58 0 0 -58 -58 0 0 58zm59 1l-60 0 0 0 0 0 0 -60 0 0 0 0 60 0 0 0 0 0 0 60 0 0 0 0z"/>
+    <path class="fil1" d="M17 47l-7 0 4 -18 -3 0 1 -5 3 0 0 -1c0,-3 1,-6 4,-8 2,-1 4,-2 6,-2 2,0 3,0 4,1l-1 5c-1,0 -2,0 -3,0 -2,0 -3,2 -3,4l-1 1 5 0 -1 5 -5 0 -3 18zm21 0l-1 -4c-1,-2 -1,-3 -2,-4l0 0c0,1 -1,2 -2,4l-3 4 -8 0 10 -12 -5 -11 7 0 2 3c0,2 1,3 1,4l0 0c1,-1 1,-2 2,-3l3 -4 8 0 -10 11 5 12 -7 0 0 0z"/>
+    <rect class="fil5" x="180" width="60.001" height="60.0009"/>
+    <path class="fil7" d="M197 22c0,0 1,0 1,0 0,1 0,1 0,2l-7 6 7 7c0,0 0,1 0,1 0,0 -1,0 -1,0l-8 -7 0 -1 0 -1 8 -7z"/>
+    <path class="fil7" d="M190 31c-1,0 -1,0 -1,-1 0,-1 0,-1 1,-1l13 0c0,0 1,0 1,1 0,1 -1,1 -1,1l-13 0z"/>
+    <path class="fil7" d="M222 24c0,-1 0,-2 0,-2 0,0 1,0 2,0l7 7 0 1 0 1 -7 7c-1,0 -2,0 -2,0 0,0 0,-1 0,-1l7 -7 -7 -6z"/>
+    <path class="fil7" d="M230 29c1,0 1,0 1,1 0,1 0,1 -1,1l-13 0c0,0 -1,0 -1,-1 0,-1 1,-1 1,-1l13 0z"/>
+    <path class="fil7" d="M218 17c0,0 0,1 0,1 0,0 -1,0 -1,0l-7 -7 -6 7c-1,0 -2,0 -2,0 0,0 0,-1 0,-1l7 -8 1 0 1 0 7 8z"/>
+    <path class="fil7" d="M209 10c0,-1 0,-1 1,-1 1,0 1,0 1,1l0 13c0,0 0,1 -1,1 -1,0 -1,-1 -1,-1l0 -13z"/>
+    <path class="fil7" d="M217 42c0,0 1,0 1,0 0,1 0,1 0,2l-7 7 -1 0 -1 0 -7 -7c0,-1 0,-2 0,-2 0,0 1,0 2,0l6 7 7 -7z"/>
+    <path class="fil7" d="M211 50c0,1 0,1 -1,1 -1,0 -1,0 -1,-1l0 -13c0,0 0,-1 1,-1 1,0 1,1 1,1l0 13z"/>
+   </g>
+  </g>
+ </g>
+</svg>
