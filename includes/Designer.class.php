@@ -307,7 +307,7 @@ class Designer {
                 "includeMaskInDesign" => true,
                 "maxZoom" => (int) WCLA_Utilities::get_option('wcla_max_zoom'),
                 "minZoom" => (int) WCLA_Utilities::get_option('wcla_min_zoom'),
-                "zoomEnabled" => (boolean) WCLA_Utilities::get_option('wcla_zoom_enabled'),
+                "zoomEnabled" => false,
                 "checkeredBackground" => false,
                 "unit" => WCLA_Utilities::get_option('wcla_unit'),
                 "unit2" => WCLA_Utilities::get_option('wcla_unit2'),

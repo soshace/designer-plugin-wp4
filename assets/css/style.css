@@ -38,19 +38,15 @@ input, select, button, textarea {
     border: 1px solid #C7C7C7;
 }
 
-#designer-init-preloader {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-color: #FFFFFF;
+::-webkit-scrollbar {
+    width: 2px;
 }
-
-#designer-init-preloader .preloader-bar {
-    position: absolute;
-    width: 100%;
-    top: 40%;
+::-webkit-scrollbar-track-piece {
+    background: #FFFFFF;
 }
+::-webkit-scrollbar-thumb {
+    background: #C7C7C7;
+}?
 
 .main-container {
     font: 9px Raleway;
@@ -71,10 +67,23 @@ input, select, button, textarea {
     margin: auto;
 }
 
+#designer-init-preloader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: #FFFFFF;
+}
+
+#designer-init-preloader .preloader-bar {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+}
 .designer-footer-caption {
     width: 295px;
     position: absolute;
-    bottom: 5px;
+    bottom: 0;
     left: 635px;
     font: 9px Raleway;
     color: #C7C7C7;
@@ -537,7 +546,7 @@ input, select, button, textarea {
 
 #products-tab .products-list li {
     float: left;
-    margin-right: 5px;
+    margin-right: 3px;
     position: relative;
     width: 95px;
     height: 115px;
@@ -546,7 +555,7 @@ input, select, button, textarea {
 }
 
 #products-tab .products-list li:nth-child(3n) {
-    margin-right: 0;
+    /*margin-right: 0;*/
 }
 
 #products-tab .products-list li a {
@@ -737,7 +746,7 @@ input, select, button, textarea {
 #graphics-tab .graphics-list li {
     float: left;
     position: relative;
-    margin-right: 5px;
+    margin-right: 3px;
     width: 95px;
     height: 115px;
     text-align: center;
@@ -745,7 +754,7 @@ input, select, button, textarea {
 }
 
 #graphics-tab .graphics-list li:nth-child(3n) {
-    margin-right: 0;
+    /*margin-right: 0;*/
 }
 
 #graphics-tab .graphics-list li a {
