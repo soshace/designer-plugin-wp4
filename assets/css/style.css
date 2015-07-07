@@ -16,8 +16,12 @@
     padding: 0 !important;
 }
 
+iframe {
+    width: 100% !important;
+}
+
 html, body {
-    background-color: #ebebeb;
+    background-color: #FFFFFF;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -30,7 +34,9 @@ body {
 input, select, button, textarea {
     -webkit-appearance: none !important;
     -webkit-border-radius: 0;
-    /*box-shadow: none !important;*/
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
     border-radius: 0;
 }
 

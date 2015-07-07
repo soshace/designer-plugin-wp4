@@ -17,16 +17,8 @@ require_once 'wcla_lagraphics_post_type.php';
 defined('ABSPATH') || exit;
 define('DESIGNER_IFRAME_PAGE', 6345);
 define('DESIGNER_PAGE', 5859);
-define('DESIGNER_DIR', plugin_dir_path(__FILE__));
-define('DESIGNER_URL', plugin_dir_url(__FILE__));
-define('DESIGNER_PRODUCTS_URL_JSON', admin_url('admin-ajax.php') . '?action=wcla_products_json');
-define('DESIGNER_COLORS_URL_JSON', admin_url('admin-ajax.php') . '?action=wcla_colors_json');
-define('DESIGNER_FONTS_URL_JSON', admin_url('admin-ajax.php') . '?action=wcla_fonts_json');
-define('DESIGNER_FONTS_CSS_URL_JSON', admin_url('admin-ajax.php') . '?action=wcla_fonts_css_json');
-define('DESIGNER_GRAPHICS_URL_JSON', admin_url('admin-ajax.php') . '?action=wcla_graphics_json');
-define('DESIGNER_QUOTE_URL_JSON', admin_url('admin-ajax.php') . '?action=wcla_quote_json');
-define('DESIGNER_ADD_TO_CART_URL', admin_url('admin-ajax.php') . '?action=wcla_add_to_cart&design_id=${design_id}');
-define('DESIGNER_SAVE_DESIGN_URL', admin_url('admin-ajax.php') . '?action=wcla_save_design');
+define('DESIGNER_DIR'
+admin_url('admin-ajax.php') . '?action=wcla_save_design');
 define('DESIGNER_LOAD_DESIGNS_URL', admin_url('admin-ajax.php') . '?action=wcla_load_designs');
 define('DESIGNER_LOAD_DESIGN_URL', admin_url('admin-ajax.php') . '?action=wcla_load_design&design_id=${design_id}');
 define('DESIGNER_UPLOAD_IMAGE_URL', admin_url('admin-ajax.php') . '?action=wcla_upload_image');
