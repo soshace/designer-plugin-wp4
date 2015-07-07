@@ -29,11 +29,13 @@ body {
 
 input, select, button, textarea {
     -webkit-appearance: none !important;
-    -webkit-border-radius: 0;
+    -moz-appearance: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
+    -webkit-border-radius: 0;
     border-radius: 0;
+    border: 1px solid #C7C7C7;
 }
 
 #designer-init-preloader {
@@ -85,6 +87,7 @@ input, select, button, textarea {
     position: relative;
     width: auto;
     height: 100%;
+    padding: 0 0 0 5px;
 }
 
 .right-column {
