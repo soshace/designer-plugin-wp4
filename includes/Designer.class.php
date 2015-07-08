@@ -121,6 +121,9 @@ class Designer {
     wp_register_script("knockout", DESIGNER_URL . "lib/knockout-2.2.1.js", array('jquery'), '2.2.1', false);
     wp_register_script("lieveart_libs", DESIGNER_URL . "lib/DELibs.js", array('jquery'), '2.2.1', false);
 
+    //wp_register_script("designer_design_libs", DESIGNER_URL . "DesignerJS.js", array('jquery'), '2.2.2', false);
+
+    //-----
     wp_register_script("designer_trial", DESIGNER_URL . "js/designer/Trial.js", array('jquery'), '2.2.2', false);
     wp_enqueue_script('designer_trial');
 
@@ -196,8 +199,6 @@ class Designer {
     wp_register_script("arc_up", DESIGNER_URL . "js/designer/ArcUp.js", array('jquery'), '2.2.2', false);
     wp_enqueue_script('arc_up');
 
-
-
     wp_register_script("text_effects_manager", DESIGNER_URL . "js/designer/TextEffectsManager.js", array('jquery'), '2.2.2', false);
     wp_enqueue_script('text_effects_manager');
 
@@ -233,7 +234,7 @@ class Designer {
 
     wp_register_script("designer_design_libs", DESIGNER_URL . "DesignerJS.js", array('jquery'), '2.2.2', false);
     wp_enqueue_script('designer_design_libs');
-
+    //-----
 
 
     wp_register_script("designer_nouislider", DESIGNER_URL . "assets/js/jquery.nouislider.min.js", array('jquery'), '2.2.1', false);

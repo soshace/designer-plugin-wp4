@@ -12,7 +12,7 @@
     font-style: normal;
 }
 
-.theme-page-wrapper {
+#theme-page .theme-page-wrapper {
     padding: 0 !important;
 }
 
@@ -159,6 +159,11 @@ input, select, button, textarea {
     background-size: 80px;
 }
 
+#bottom-menus .bottom-menu__main a:first-child:hover {
+    background: #C7C7C7 url(../img/designer-ui/ellipsis.svg) no-repeat -41px 0;
+    background-size: 80px;
+}
+
 #bottom-menus .bottom-menu__main a:nth-child(2) {
     width: 108px;
 }
@@ -167,10 +172,6 @@ input, select, button, textarea {
     width: 137px;
     border-color: #59DB76;
     color: #59DB76;
-}
-
-#bottom-menus .bottom-menu__main a:first-child.active:hover {
-    background-color: #FFFFFF;
 }
 
 #bottom-menus .bottom-menu__main a:nth-child(2):hover {
@@ -224,6 +225,11 @@ input, select, button, textarea {
     background: url(../img/designer-ui/ellipsis.svg) no-repeat -41px 0 #C7C7C7;
     background-size: 80px;
 }
+
+/*#bottom-menus .bottom-menu__ellipsis a:first-child:hover {
+    background: url(../img/designer-ui/ellipsis.svg) no-repeat -1px 0 #FFFFFF;
+    background-size: 80px;
+}*/
 
 /*Bottom ellipsis menu ends here*/
 
@@ -522,18 +528,27 @@ input, select, button, textarea {
     pointer-events: none;
 }
 
-#products-tab .products-back-btn {
+#products-tab .products-list {
+    position: relative;
+}
+
+#products-tab .products-list .products-back-btn {
     float: left;
     position: relative;
     width: 95px;
     height: 95px;
+    margin-right: 3px;
     color: #FFFFFF;
     background: no-repeat url(../img/designer-ui/products_back.svg) 0 0;
     background-size: 95px;
     cursor: pointer;
 }
 
-#products-tab .products-back-btn:hover {
+#products-tab .products-list .products-back-btn:nth-child(1n + 2) {
+    display: none;
+}
+
+#products-tab .products-list .products-back-btn:hover {
     background: no-repeat url(../img/designer-ui/products_back_red.svg) 0 0;
     background-size: 95px;
 }
@@ -721,7 +736,11 @@ input, select, button, textarea {
     background-size: cover;
 }
 
-#graphics-tab .graphics-back-btn {
+#graphics-tab .graphics-list {
+    position: relative;
+}
+
+#graphics-tab .graphics-list .graphics-back-btn {
     float: left;
     position: relative;
     width: 95px;
@@ -732,7 +751,11 @@ input, select, button, textarea {
     cursor: pointer;
 }
 
-#graphics-tab .graphics-back-btn:hover {
+#graphics-tab .graphics-list .graphics-back-btn:nth-child(1n+2) {
+    display: none;
+}
+
+#graphics-tab .graphics-list .graphics-back-btn:hover {
     background: no-repeat url(../img/designer-ui/products_back_red.svg) 0 0;
     background-size: 95px;
 }
@@ -808,12 +831,12 @@ input, select, button, textarea {
 
 #graphics-tab #graphics-color-form .graphics-color-form__title a span {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 9px;
+    height: 9px;
     top: 0;
-    right: 5px;
-    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
-    background-size: 12px;
+    right: 9px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat -9px 0;
+    background-size: 18px;
 }
 
 #graphics-tab #graphics-color-form .color-selected {
@@ -836,12 +859,12 @@ input, select, button, textarea {
     cursor: pointer;
     position: absolute;
     display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 9px;
+    height: 9px;
     top: 0;
-    right: 10px;
-    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
-    background-size: 12px;
+    right: 9px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat -9px 0;
+    background-size: 18px;
 }
 
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__info {
@@ -935,12 +958,12 @@ input, select, button, textarea {
     cursor: pointer;
     position: absolute;
     display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 9px;
+    height: 9px;
     top: 0;
-    right: 10px;
-    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
-    background-size: 12px;
+    right: 9px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat -9px 0;
+    background-size: 18px;
 }
 
 #graphics-tab #graphics-upload-form {
@@ -1069,14 +1092,14 @@ input, select, button, textarea {
 #numbers-tab #order-sheet-form p:first-of-type a {
     position: absolute;
     display: inline-block;
-    height: 6px;
-    width: 6px;
+    height: 9px;
+    width: 9px;
     top: 0;
-    right: 10px;
+    right: 9px;
     margin-left: 5px;
     cursor: pointer;
-    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
-    background-size: 12px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat -9px 0;
+    background-size: 18px;
 }
 
 #numbers-tab .order-sheet-caption span {
@@ -1201,14 +1224,14 @@ input, select, button, textarea {
 .js-close-overlay-form {
     position: absolute;
     display: inline-block;
-    height: 6px;
-    width: 6px;
+    height: 9px;
+    width: 9px;
     top: 0;
-    right: 10px;
+    right: 9px;
     margin-left: 5px;
     cursor: pointer;
-    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
-    background-size: 12px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat -9px 0;
+    background-size: 18px;
 }
 
 /*Product sizes tab starts here*/
@@ -1319,12 +1342,13 @@ input, select, button, textarea {
 }
 
 #product-sizes-tab ol ul > li input.order-item-quantity {
-    width: 25px;
+    width: 30px;
     height: 30px;
     margin-right: 3px;
     padding: 0 0 0 5px;
     color: #D51622;
     text-align: center;
+    font-size: 14px;
 }
 
 #product-sizes-tab .order-item-remove {
@@ -1683,6 +1707,10 @@ input, select, button, textarea {
     }
 }
 
+#text-tab {
+    font: 9px Raleway;
+}
+
 .text-tab__title {
 
 }
@@ -1883,13 +1911,13 @@ input, select, button, textarea {
 
 .text-transform-slider .text-tab-label {
     float: left;
-    width: 71px;
+    width: 75px;
     line-height: 7px;
 }
 
 .text-transform-slider .text-control-slider {
     float: left;
-    width: 222px;
+    width: 220px;
 }
 
 .text-control-slider .noUi-handle {
@@ -1988,12 +2016,12 @@ input, select, button, textarea {
 
 .font-list__close, .fonts-colors__close {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 9px;
+    height: 9px;
     top: 12px;
     right: 4px;
-    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
-    background-size: 12px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat -9px 0;
+    background-size: 18px;
 }
 
 .fonts-colors__name {

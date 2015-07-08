@@ -61,11 +61,11 @@
                     </div>
                 </div>
                 <div class="products-list">
-                    <div class="products-back-btn"
-                         data-bind="click: backToCategoriesList, visible: backToCategoriesVisible">
-                        Back
-                    </div>
                     <ul class="" data-bind="foreach: currentProducts">
+                        <div class="products-back-btn"
+                             data-bind="click: $root.backToCategoriesList, visible: $root.backToCategoriesVisible">
+                            Back
+                        </div>
                         <li data-bind="
                                        click: $root.selectProductItem,
                                        css: { category: isCategory(),
@@ -355,9 +355,9 @@
                         </div>
                     </div>
 
-                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
+                    <!--<div class="text-tab-title" data-bind="visible: textToolsIsVisible">
                         Apply a text effect
-                    </div>
+                    </div>-->
 
                     <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
                     <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
@@ -562,11 +562,11 @@
                         </button>
                     </div>
                     <div class="graphics-list">
-                        <div class="graphics-back-btn"
-                             data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem">
-                            Back
-                        </div>
                         <ul data-bind="foreach: currentGraphics , css: { narrow: graphicSelectedSubcategory }">
+                            <div class="graphics-back-btn"
+                                 data-bind="visible: $root.graphicSelectedSubcategory, click: $root.backGraphicItem">
+                                Back
+                            </div>
                             <li data-bind="
                                     click: $root.selectGraphicItem,
                                     css: { category: isCategory(),

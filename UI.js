@@ -777,18 +777,18 @@ function DEControlsModel() {
 
     //-----to show on colors-tab openning first group, frist class and choosen color
     self.initialColorsSelection = function () {
-        var colorGroup = undefined,
-            colorClasses = [];
+        var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
+            colorClasses = colorGroup.classes(),
+            colorClass = colorClasses[0],
+            colors = colorClass.colors();
 
-        colorGroup = self.selectedProductColorVO().colorizeGroupList()[0];
-        colorClasses = colorGroup.classes();
-        self.selectedProductElementColor(colorClasses[0]);
-        self.colorClasses(colorClasses);
-        self.colorsList(colorClasses[0].colors());
-        self.setColorsByGroups(colorClasses[0].colors());
         self.currentColorizeElementGroup(colorGroup.name());
+        self.colorClasses(colorClasses);
+        self.selectedProductElementColor(colorClass);
+        self.colorsList(colors);
+        self.setColorsByGroups(colors);
+    };
 
-    }
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
         self.selectedProductElementColor(new ColorizeElementVO());
@@ -796,7 +796,7 @@ function DEControlsModel() {
         self.colorsList([]);
         self.colorsGroupsList([]);
         self.currentColorizeElementGroup('');
-    }
+    };
     //-----
 
     //----- for colors palette in mobile version
@@ -824,14 +824,16 @@ function DEControlsModel() {
         //-----
         self.resetColorsSelection();
         //-----
-        var classes = colorizeElementGroup.classes();
+        var colorClasses = colorizeElementGroup.classes(),
+            colorClass = colorClasses[0],
+            colors = colorClass.colors();
 
         //----- for colorizing current element group
         self.currentColorizeElementGroup(colorizeElementGroup.name());
-        self.selectedProductElementColor(classes[0]);
-        self.colorClasses(classes);
-        self.colorsList(classes[0].colors());
-        self.setColorsByGroups(classes[0].colors());
+        self.selectedProductElementColor(colorClass);
+        self.colorClasses(colorClasses);
+        self.colorsList(colors);
+        self.setColorsByGroups(colors);
         //-----
 
         /*self.colorClasses(classes);
