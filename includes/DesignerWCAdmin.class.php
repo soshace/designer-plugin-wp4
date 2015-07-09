@@ -598,8 +598,34 @@ class DesignerWCAdmin {
                 $colorizable_elements[] = isset($_POST["wcla_colorizable_element"][$val]) ? $_POST["wcla_colorizable_element"][$val] : array();
             }
         }
+
+    $colElements=array();
+    if(isset($_POST["wcla_colorizable_element"])){
+        foreach($_POST["wcla_colorizable_element"] as $key=>$val){
+            $colElement=array("name"=>$val["name"],"id"=>$val["id"]);
+            if(isset($val["classes"])){
+                $colElementClasses=array();
+                foreach ($val["classes"] as $_k => $class) {
+                    $_class=array("name"=>$class["name"],"id"=>"#".$val["id"].">".$class["id"],"backend_id"=>$class["id"]);
+                    if(isset($class["values"])){
+                        $colors=array();
+                        foreach ($class["values"] as $_i => $color) {
+                            $colors[]=$color;
+                        }
+                        $_class["colors"]=$colors;
+                    }
+                    $colElementClasses[]=$_class;
+                }
+                $colElement["classes"]=$colElementClasses;
+            }
+            $colElements[]=$colElement;
+        }
+    }
+
+
         // var_dump($_POST["wcla_colorizable_elements"],$_POST["wcla_colorizable_element"],$colorizable_elements);die();
-        update_post_meta($post_id, 'wcla_product_colorizable_elements', $colorizable_elements);
+   // update_post_meta($post_id, 'wcla_product_colorizable_elements', $colorizable_elements);
+     update_post_meta($post_id, 'wcla_product_colorizable_elements', $colElements);
 
         $editable_area_sizes = array();
 
