@@ -177,7 +177,7 @@ jQuery(function () {
         return $('#' + designerUI.activeTabName);
     }
 
-    function changeColorCarouselView(tabName) {
+    /*function changeColorCarouselView(tabName) {
         var $textTemplate = $('#color-group-text'),
             $productsTemplate = $('#color-group-products');
 
@@ -189,7 +189,7 @@ jQuery(function () {
 
         $textTemplate.addClass('hide');
         $productsTemplate.removeClass('hide');
-    }
+    }*/
 
     $('.js-designer-tab').on('click', function (event) {
         var $this = $(this),
@@ -206,7 +206,7 @@ jQuery(function () {
 
         if (typeof designerUI.activeTabName === 'string') {
             getActiveTab().addClass('hide');
-            changeColorCarouselView(tabName);
+            //changeColorCarouselView(tabName);
         }
 
         //-----to apply css in dependence of which tab is opened

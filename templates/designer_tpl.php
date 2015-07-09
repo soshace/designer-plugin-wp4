@@ -112,7 +112,8 @@
                     <span data-bind="text: $root.colorName()"></span>
                 </div>
 
-                <script type="text/html" id="colors-palette-template">
+                <!-- ko if: !isMobile() && currentTab()==='colors-tab' -->
+                <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
                     <li>
                         <a href="#" data-bind="
                             style: {
@@ -141,13 +142,6 @@
                         </svg>
                         </a>
                     </li>
-                </script>
-                <!-- ko if: !isMobile() && currentTab()==='colors-tab' -->
-                <ul class="colors-palette clearfix" data-bind="template : {
-                            name: 'colors-palette-template',
-                            foreach: colorsList,
-                            as: 'item'
-                            }">
                 </ul>
                 <!-- /ko -->
             </div>
@@ -196,6 +190,7 @@
 
                         <div class="fonts-colors__name">COLOUR SELECTED - <span
                                 data-bind="text: selectedFontColorName"></span></div>
+                        <!-- ko if: !isMobile() && currentTab()==='text-tab' -->
                         <ul class="colors-palette clearfix" data-bind="foreach: colors">
                             <li>
                                 <a href="#" data-bind="
@@ -219,16 +214,17 @@
                                         width="24px" height="24px" version="1.1"
                                         style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                                         viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                              <g>
-                                  <g>
-                                      <path class="fil1"
-                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                  </g>
-                              </g>
-                        </svg>
+                                          <g>
+                                              <g>
+                                                  <path class="fil1"
+                                                        d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                              </g>
+                                          </g>
+                                    </svg>
                                 </a>
                             </li>
                         </ul>
+                        <!-- /ko -->
                     </div>
                     <div class="font-list" data-bind="visible: showFontsList">
                         <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
@@ -290,43 +286,45 @@
 
                         <div class="fonts-colors__name">COLOUR SELECTED - <span
                                 data-bind="text: selectedStrokeColorName"></span></div>
+                        <!-- ko if: !isMobile() && currentTab()==='text-tab' -->
                         <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
                             <li>
                                 <a href="#" data-bind="
-                            style: {
-                                'background-color': value,
-                                'color': value,
-                                'border-color': $root.getStrokeColor(value)
-                                },
-                                title: name,
-                                click: $root.selectFontStrokeColor,
-                                css: {
-                                    selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
-                                }
-                            ">
-                                    <svg
-                                        data-bind="
-                                            visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase(),
                                             style: {
-                                                    fill: $root.getStrokeColor(value)
+                                                'background-color': value,
+                                                'color': value,
+                                                'border-color': $root.getStrokeColor(value)
+                                                },
+                                                title: name,
+                                                click: $root.selectFontStrokeColor,
+                                                css: {
+                                                    selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
                                                 }
-                                            "
-                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                        width="24px" height="24px" version="1.1"
-                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <g>
+                                            ">
+                                        <svg
+                                            data-bind="
+                                                visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase(),
+                                                style: {
+                                                        fill: $root.getStrokeColor(value)
+                                                    }
+                                                "
+                                            id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                            width="24px" height="24px" version="1.1"
+                                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                            viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <g>
-                                                    <path class="fil1"
-                                                          d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                                    <g>
+                                                        <path class="fil1"
+                                                              d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                                    </g>
                                                 </g>
-                                            </g>
                                         </svg>
                                     <span class="colors-palette__crossed"
                                           data-bind="visible: $data.value.toLocaleLowerCase() === 'none'"></span>
                                 </a>
                             </li>
                         </ul>
+                        <!-- /ko -->
                     </div>
                     <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
                         <div class="text-tab-label">RESIZE TEXT</div>
@@ -697,11 +695,35 @@
                             <span data-bind="text: $root.colorName()"></span>
                         </div>
                         <!-- ko if: !isMobile() && currentTab()==='graphics-tab' -->
-                        <ul class="colors-palette clearfix" data-bind="template : {
-                            name: 'colors-palette-template',
-                            foreach: colorsList,
-                            as: 'group'
-                            }">
+                        <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
+                            <li>
+                                <a href="#" data-bind="
+                                    style: {
+                                        'background-color': value,
+                                        'color': value,
+                                        'border-color': value == '#FFFFFF' ? '#A3A2A4': value
+                                        },
+                                    title: name,
+                                    click: $root.colorSelected,
+                                    css: {
+                                        selected: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                    }
+                                ">
+                                    <svg
+                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                            width="24px" height="24px" version="1.1"
+                                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                            viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                          <g>
+                                              <g>
+                                                  <path class="fil1"
+                                                        d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                              </g>
+                                          </g>
+                                    </svg>
+                                </a>
+                            </li>
                         </ul>
                         <!-- /ko -->
                     </div>
@@ -933,88 +955,82 @@
                             </svg>
                         <!--<span class="sr-only">Previous</span>-->
                     </a>
-                    <script type="text/html" id="color-group-template-products">
-                        <li class="item" data-bind="css: {active: $index() === 0}">
-                            <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
-                                <li>
-                                    <a href="#" data-bind="
-                                    style: {
-                                        'background-color': value,
-                                        'color': value,
-                                        'border-color': value
-                                        },
-                                        title: name,
-                                        click: $root.colorSelected,
-                                        css: {
-                                        selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
-                                    }
-                                ">
-                                        <svg
-                                            data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                            id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
-                                            xml:space="preserve" width="24px" height="24px" version="1.1"
-                                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                            viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                      <g>
-                                          <g>
-                                              <path class="fil1"
-                                                    d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                          </g>
-                                      </g>
-                                </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                    <!--<script type="text/html" id="color-group-template-products">
+
                     </script>
                     <script type="text/html" id="color-group-template-text">
+
+                    </script>-->
+                    <!-- ko if: isMobile() && (currentTab()==='colors-tab' || currentTab()==='graphics-tab') -->
+                    <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
                                     <a href="#" data-bind="
-                                    style: {
-                                        'background-color': value,
-                                        'color': value,
-                                        'border-color': value
-                                        },
-                                        title: name,
-                                        click: $root.colorSelected,
-                                        css: {
-                                        selected: $data.value.toLocaleLowerCase() === $root.selectedTextColor()
-                                    }
-                                ">
+                                            style: {
+                                                'background-color': value,
+                                                'color': value,
+                                                'border-color': value
+                                                },
+                                                title: name,
+                                                click: $root.colorSelected,
+                                                css: {
+                                                selected: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                            }
+                                        ">
                                         <svg
-                                            data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedTextColor(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
                                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
                                             xml:space="preserve" width="24px" height="24px" version="1.1"
                                             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                                             viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                      <g>
-                                          <g>
-                                              <path class="fil1"
-                                                    d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                          </g>
-                                      </g>
-                                </svg>
+                                              <g>
+                                                  <g>
+                                                      <path class="fil1"
+                                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                                  </g>
+                                              </g>
+                                        </svg>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                    </script>
-                    <!-- ko if: isMobile() && (currentTab()==='colors-tab' || currentTab()==='graphics-tab') -->
-                    <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="template : {
-                                name: 'color-group-template-products',
-                                foreach: colorsGroupsList,
-                                as: 'group'
-                        }">
                     </ul>
                     <!-- /ko -->
                     <!-- ko if: isMobile() && currentTab()==='text-tab'-->
-                    <ul class="carousel-inner js-color-group hide" id="color-group-text" data-bind="template : {
-                                name: 'color-group-template-text',
-                                foreach: colorsGroupsList,
-                                as: 'group'
-                        }">
+                    <ul class="carousel-inner js-color-group" id="color-group-text" data-bind="foreach: colorsGroupsList">
+                        <li class="item" data-bind="css: {active: $index() === 0}">
+                            <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
+                                <li>
+                                    <a href="#" data-bind="
+                                            style: {
+                                                'background-color': value,
+                                                'color': value,
+                                                'border-color': value
+                                                },
+                                                title: name,
+                                                click: $root.colorSelected,
+                                                css: {
+                                                selected: value.toLocaleLowerCase() === $root.selectedTextColor()
+                                            }
+                                    ">
+                                        <svg
+                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedTextColor(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
+                                            xml:space="preserve" width="24px" height="24px" version="1.1"
+                                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                            viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                              <g>
+                                                  <g>
+                                                      <path class="fil1"
+                                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                                  </g>
+                                              </g>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                     <!-- /ko -->
 

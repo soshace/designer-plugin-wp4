@@ -1616,12 +1616,11 @@ function DEControlsModel() {
                 openTextForm();
                 break;
             case 'graphics':
-                if (designerUI.activeTabName == 'graphics-tab') {
-                    openGraphicsColorForm();
-                }
+                debugger;
+                openGraphicsColorForm();
                 break;
             case 'none':
-                if (designerUI.activeTabName == 'graphics-tab' && self.windowWidth() >= 768) {
+                if (!self.isMobile()) {
                     hideGraphicsColorForm();
                 }
                 break;
