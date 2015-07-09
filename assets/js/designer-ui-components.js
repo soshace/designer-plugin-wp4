@@ -359,6 +359,12 @@ jQuery(function () {
             $('meta[name=viewport]').attr('content', 'width=320');
         }*/
 
+        if (window_width < 768) {
+            controlsModel.isMobile(true);
+        } else {
+            controlsModel.isMobile(false);
+        }
+
         var $svg = $('#canvas-container > div > svg:first-child');
         if ($svg[0]) {
             $svg.each(function () {

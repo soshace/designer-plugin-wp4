@@ -714,7 +714,9 @@ function DEControlsModel() {
     var self = this;
 
     //-----
-    self.windowWidth = ko.observable($(window).width());
+    self.windowWidth = function() {
+        return $(window).width();
+    };
     self.colorsTabFormsState = ko.observable('addForm');
     self.currentTab = ko.observable('products-tab');
     self.currentTab.subscribe(function(newValue) {
@@ -724,6 +726,7 @@ function DEControlsModel() {
             self.resetColorsSelection();
         }
     });
+    self.isMobile = ko.observable(self.windowWidth() < 768);
     //-----
 
     /**
@@ -769,14 +772,10 @@ function DEControlsModel() {
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
 
-    //----- to hide or show bottom menu/color palette
-    self.isBottomColorPaletteShowed = ko.computed(function () {
-        return !(self.windowWidth() > 768 || self.colorsList().length === 0);
-    });
-    //-----
-
     //-----to show on colors-tab openning first group, frist class and choosen color
     self.initialColorsSelection = function () {
+        console.log('-----');
+        console.time('init');
         var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
             colorClasses = colorGroup.classes(),
             colorClass = colorClasses[0],
@@ -785,22 +784,38 @@ function DEControlsModel() {
         self.currentColorizeElementGroup(colorGroup.name());
         self.colorClasses(colorClasses);
         self.selectedProductElementColor(colorClass);
+        console.time('colorslist');
         self.colorsList(colors);
+        console.timeEnd('colorslist');
+        console.time('colorsgroups');
         self.setColorsByGroups(colors);
+        console.timeEnd('colorsgroups');
+        console.timeEnd('init');
     };
 
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
+        console.log('-----');
+        console.time('reset');
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
+        console.time('colorslist');
         self.colorsList([]);
-        self.colorsGroupsList([]);
+        console.timeEnd('colorslist');
+        console.time('colorsgroups');
+        self.setColorsByGroups([]);
+        console.timeEnd('colorsgroups');
         self.currentColorizeElementGroup('');
+        console.timeEnd('reset');
     };
     //-----
 
     //----- for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
+    //----- to hide or show bottom menu/color palette
+    self.isBottomColorPaletteShowed = ko.computed(function () {
+        return self.isMobile() && self.colorsGroupsList().length > 0
+    });
     self.currentColorizeElementGroup = ko.observable('');
     self.colorName = ko.computed(function () {
         var colorName = '',
@@ -819,11 +834,10 @@ function DEControlsModel() {
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
+        console.log('-----');
         event.preventDefault();
 
-        //-----
-        self.resetColorsSelection();
-        //-----
+        console.time('select');
         var colorClasses = colorizeElementGroup.classes(),
             colorClass = colorClasses[0],
             colors = colorClass.colors();
@@ -832,37 +846,44 @@ function DEControlsModel() {
         self.currentColorizeElementGroup(colorizeElementGroup.name());
         self.selectedProductElementColor(colorClass);
         self.colorClasses(colorClasses);
+        console.time('colorslist');
         self.colorsList(colors);
+        console.timeEnd('colorslist');
+        console.time('colorsgroups');
         self.setColorsByGroups(colors);
+        console.timeEnd('colorsgroups');
+        console.timeEnd('select');
         //-----
-
-        /*self.colorClasses(classes);
-         self.colorsList([]);
-         self.colorsGroupsList([]);*/
     };
 
     self.selectColorSubElement = function (colorizeElement, event) {
+        console.log('-----');
         var colorsList = colorizeElement.colors();
-
+        console.time('subelement');
         event.preventDefault();
         self.selectedProductElementColor(colorizeElement);
+        console.time('colorslist');
         self.colorsList(colorsList);
+        console.timeEnd('colorslist');
+        console.time('colorsgroups');
         self.setColorsByGroups(colorsList);
+        console.timeEnd('colorsgroups');
+        console.timeEnd('subelement');
     };
 
-    self.setColorsByGroups = function (colorsList) {
+    self.setColorsByGroups = function (colors) {
         //----- for colors palette in mobile version where it is devided in groups by 9
         var i = 0,
             k = 0,
             group = [],
             groupsList = [];
-        while (i < colorsList.length) {
+        while (i < colors.length) {
             if (k > 8) {
                 groupsList.push({items: group});
                 group = [];
                 k = 0;
             } else {
-                group.push(colorsList[i]);
+                group.push(colors[i]);
                 k += 1;
             }
             i += 1;

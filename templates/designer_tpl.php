@@ -111,7 +111,8 @@
                     COLOUR SELECTED:
                     <span data-bind="text: $root.colorName()"></span>
                 </div>
-                <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
+
+                <script type="text/html" id="colors-palette-template">
                     <li>
                         <a href="#" data-bind="
                             style: {
@@ -122,11 +123,11 @@
                             title: name,
                             click: $root.colorSelected,
                             css: {
-                                selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                selected: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                             }
                         ">
                             <svg
-                                data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
                                 id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                 width="24px" height="24px" version="1.1"
                                 style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -140,7 +141,15 @@
                         </svg>
                         </a>
                     </li>
+                </script>
+                <!-- ko if: !isMobile() && currentTab()==='colors-tab' -->
+                <ul class="colors-palette clearfix" data-bind="template : {
+                            name: 'colors-palette-template',
+                            foreach: colorsList,
+                            as: 'item'
+                            }">
                 </ul>
+                <!-- /ko -->
             </div>
             <div id="text-tab" class="hide">
                 <div class="text-tab-desktop">
@@ -687,36 +696,14 @@
                             COLOUR SELECTED:
                             <span data-bind="text: $root.colorName()"></span>
                         </div>
-                        <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
-                            <li>
-                                <a href="#" data-bind="
-                                    style: {
-                                        'background-color': value,
-                                        'color': value,
-                                        'border-color': value == '#FFFFFF' ? '#A3A2A4': value
-                                        },
-                                    title: name,
-                                    click: $root.colorSelected,
-                                    css: {
-                                        selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
-                                    }
-                                ">
-                                    <svg
-                                        data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                        width="24px" height="24px" version="1.1"
-                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                      <g>
-                                          <g>
-                                              <path class="fil1"
-                                                    d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                          </g>
-                                      </g>
-                                </svg>
-                                </a>
-                            </li>
+                        <!-- ko if: !isMobile() && currentTab()==='graphics-tab' -->
+                        <ul class="colors-palette clearfix" data-bind="template : {
+                            name: 'colors-palette-template',
+                            foreach: colorsList,
+                            as: 'group'
+                            }">
                         </ul>
+                        <!-- /ko -->
                     </div>
                 </div>
             </div>
@@ -946,7 +933,6 @@
                             </svg>
                         <!--<span class="sr-only">Previous</span>-->
                     </a>
-
                     <script type="text/html" id="color-group-template-products">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
@@ -1015,18 +1001,22 @@
                             </ul>
                         </li>
                     </script>
+                    <!-- ko if: isMobile() && (currentTab()==='colors-tab' || currentTab()==='graphics-tab') -->
                     <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="template : {
                                 name: 'color-group-template-products',
                                 foreach: colorsGroupsList,
                                 as: 'group'
                         }">
                     </ul>
+                    <!-- /ko -->
+                    <!-- ko if: isMobile() && currentTab()==='text-tab'-->
                     <ul class="carousel-inner js-color-group hide" id="color-group-text" data-bind="template : {
                                 name: 'color-group-template-text',
                                 foreach: colorsGroupsList,
                                 as: 'group'
                         }">
                     </ul>
+                    <!-- /ko -->
 
                     <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="next">
