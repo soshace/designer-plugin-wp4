@@ -46,7 +46,7 @@ input, select, button, textarea {
 }
 ::-webkit-scrollbar-thumb {
     background: #C7C7C7;
-}?
+}
 
 .main-container {
     font: 9px Raleway;
@@ -108,7 +108,7 @@ input, select, button, textarea {
 }
 
 #canvas {
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 
 #canvas-container {
@@ -128,7 +128,7 @@ input, select, button, textarea {
 
 #bottom-menus {
     width: 295px;
-    margin: 10px auto 0 auto;
+    margin: 10px 0 0 0;
     height: 40px;
     font: 14px Raleway;
     color: #C7C7C7;
@@ -1615,6 +1615,7 @@ input, select, button, textarea {
         bottom: 20px;
         height: auto;
         margin: 0 auto;
+        padding: 0 0 0 12px;
         float: none;
     }
 
@@ -1623,7 +1624,7 @@ input, select, button, textarea {
         height: auto;
         margin: 0 auto;
         float: none;
-        padding-left: 12px;
+        padding: 0 0 0 12px;
     }
 
     .left-column.active-products-tab {

@@ -726,7 +726,7 @@ function DEControlsModel() {
             self.resetColorsSelection();
         }
     });
-    self.isMobile = ko.observable(self.windowWidth() < 768);
+    self.isMobile = ko.observable(self.windowWidth() <= 768);
     //-----
 
     /**
@@ -772,10 +772,20 @@ function DEControlsModel() {
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
 
+    self.populateObservableArray= function (observableArray, items) {
+        observableArray(items);
+        /*var underlyingArray = observableArray();
+        underlyingArray.splice(0, underlyingArray.length);
+        for (var i = 0, l = items.length; i < l; i++) {
+            underlyingArray.push(items[i]);
+        }
+        observableArray.valueHasMutated();*/
+    };
+
     //-----to show on colors-tab openning first group, frist class and choosen color
     self.initialColorsSelection = function () {
-        console.log('-----');
-        console.time('init');
+        //console.log('-----');
+        //console.time('init');
         var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
             colorClasses = colorGroup.classes(),
             colorClass = colorClasses[0],
@@ -784,29 +794,31 @@ function DEControlsModel() {
         self.currentColorizeElementGroup(colorGroup.name());
         self.colorClasses(colorClasses);
         self.selectedProductElementColor(colorClass);
-        console.time('colorslist');
-        self.colorsList(colors);
-        console.timeEnd('colorslist');
-        console.time('colorsgroups');
+        //console.time('colorslist');
+        self.populateObservableArray(self.colorsList, colors);
+        //console.timeEnd('colorslist');
+        //console.time('colorsgroups');
         self.setColorsByGroups(colors);
-        console.timeEnd('colorsgroups');
-        console.timeEnd('init');
+        //console.timeEnd('colorsgroups');
+        //console.timeEnd('init');
+        //console.log('+++++');
     };
 
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
-        console.log('-----');
-        console.time('reset');
+        //console.log('-----');
+        //console.time('reset');
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
-        console.time('colorslist');
-        self.colorsList([]);
-        console.timeEnd('colorslist');
-        console.time('colorsgroups');
+        //console.time('colorslist');
+        self.populateObservableArray(self.colorsList, []);
+        //console.timeEnd('colorslist');
+        //console.time('colorsgroups');
         self.setColorsByGroups([]);
-        console.timeEnd('colorsgroups');
+        //console.timeEnd('colorsgroups');
         self.currentColorizeElementGroup('');
-        console.timeEnd('reset');
+        //console.timeEnd('reset');
+        //console.log('+++++');
     };
     //-----
 
@@ -834,10 +846,10 @@ function DEControlsModel() {
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
-        console.log('-----');
+        //console.log('-----');
         event.preventDefault();
 
-        console.time('select');
+        //console.time('select');
         var colorClasses = colorizeElementGroup.classes(),
             colorClass = colorClasses[0],
             colors = colorClass.colors();
@@ -846,29 +858,31 @@ function DEControlsModel() {
         self.currentColorizeElementGroup(colorizeElementGroup.name());
         self.selectedProductElementColor(colorClass);
         self.colorClasses(colorClasses);
-        console.time('colorslist');
-        self.colorsList(colors);
-        console.timeEnd('colorslist');
-        console.time('colorsgroups');
+        //console.time('colorslist');
+        self.populateObservableArray(self.colorsList, colors);
+        //console.timeEnd('colorslist');
+        //console.time('colorsgroups');
         self.setColorsByGroups(colors);
-        console.timeEnd('colorsgroups');
-        console.timeEnd('select');
+        //console.timeEnd('colorsgroups');
+        //console.timeEnd('select');
+        //console.log('+++++');
         //-----
     };
 
     self.selectColorSubElement = function (colorizeElement, event) {
-        console.log('-----');
+        //console.log('-----');
         var colorsList = colorizeElement.colors();
-        console.time('subelement');
+        //console.time('subelement');
         event.preventDefault();
         self.selectedProductElementColor(colorizeElement);
-        console.time('colorslist');
-        self.colorsList(colorsList);
-        console.timeEnd('colorslist');
-        console.time('colorsgroups');
+        //console.time('colorslist');
+        self.populateObservableArray(self.colorsList, colorsList);
+        //console.timeEnd('colorslist');
+        //console.time('colorsgroups');
         self.setColorsByGroups(colorsList);
-        console.timeEnd('colorsgroups');
-        console.timeEnd('subelement');
+        //console.timeEnd('colorsgroups');
+        //console.timeEnd('subelement');
+        //console.log('+++++');
     };
 
     self.setColorsByGroups = function (colors) {
@@ -891,7 +905,7 @@ function DEControlsModel() {
         if (group.length !== 0) {
             groupsList.push({items: group});
         }
-        self.colorsGroupsList(groupsList);
+        self.populateObservableArray(self.colorsGroupsList, groupsList);
     };
 
     self.colorSelectedName = ko.observable('');
@@ -1077,7 +1091,7 @@ function DEControlsModel() {
                 self.selectProduct(item.obj());
 
                 //----- Switch to colors tab in mobile version
-                if (self.windowWidth() < 768) {
+                if (self.windowWidth() <= 768) {
                     $('a[href="colors-tab"]').trigger('click');
                 }
                 //-----
@@ -1616,7 +1630,6 @@ function DEControlsModel() {
                 openTextForm();
                 break;
             case 'graphics':
-                debugger;
                 openGraphicsColorForm();
                 break;
             case 'none':

@@ -350,7 +350,6 @@ jQuery(function () {
 
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
     function onResize() {
-        var window_width = $(window).width();
             /*ratio = 1;*/
 
         /*if (window_width > 768) {
@@ -359,9 +358,9 @@ jQuery(function () {
             $('meta[name=viewport]').attr('content', 'width=320');
         }*/
 
-        if (window_width < 768) {
+        if ($(window).width() <= 768 && controlsModel.isMobile() === false) {
             controlsModel.isMobile(true);
-        } else {
+        } else if ($(window).width() > 768 && controlsModel.isMobile() === true) {
             controlsModel.isMobile(false);
         }
 
@@ -385,8 +384,7 @@ jQuery(function () {
     }
 
     $(window).bind('resize', function () {
-        var window_width = $(window).width();
-        controlsModel.windowWidth(window_width);
+        controlsModel.windowWidth($(window).width());
         onResize();
     });
 
