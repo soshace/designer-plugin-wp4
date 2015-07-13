@@ -272,7 +272,7 @@
                             <a class="text-controls-choose-color" href="#" data-bind="style: {
                                 'background-color': selectedLetteringVO().formatVO().strokeColor,
                                 'color': selectedLetteringVO().formatVO().strokeColor,
-                                'border-color': selectedLetteringVO().formatVO().strokeColor
+                                'border-color': selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': selectedLetteringVO().formatVO().strokeColor
                                 },
                                  click: toggleFontsStrokeColorsList"></a>
                         </div>
