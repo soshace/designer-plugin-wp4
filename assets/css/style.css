@@ -1561,17 +1561,17 @@ input, select, button, textarea {
     }
 
     #canvas-container {
-        width: 320px;
+        width: 296px;
         height: 296px;
     }
 
     #canvas-container > div:first-child {
-        width: 320px !important;
+        width: 296px !important;
         height: 296px !important;
     }
 
     #canvas-container > div > svg {
-        width: 320px;
+        width: 296px;
         height: 296px;
     }
 }
@@ -1595,17 +1595,17 @@ input, select, button, textarea {
     }
 
     #canvas-container {
-        width: 320px;
+        width: 296px;
         height: 296px;
     }
 
     #canvas-container > div:first-child {
-        width: 320px !important;
+        width: 296px !important;
         height: 296px !important;
     }
 
     #canvas-container > div > svg {
-        width: 320px;
+        width: 296px;
         height: 296px;
     }
 
@@ -1864,11 +1864,11 @@ input, select, button, textarea {
 .colors-palette__crossed {
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 11px;
     width: 100%;
     border-top: 1px solid black;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
 }
 
