@@ -1029,7 +1029,7 @@ function DEControlsModel() {
     self.selectedCategoryId = ko.observable();
     self.selectedCategoryId.subscribe(function () {
         self.productsSearchQuery("");
-    })
+    });
 
     self.productCurrentCategory.subscribe(function (value) {
         var id = value.id();
@@ -1041,6 +1041,13 @@ function DEControlsModel() {
         self.selectedCategoryId(id);
     });
 
+    var setProductCategoryParrent = function(category) {
+        var categories = category.categories();
+        ko.utils.arrayForEach(categories, function (childCategory) {
+            childCategory.parentCategory = category;
+            setProductCategoryParrent(childCategory);
+        });
+    };
     self.changeCategorySelectHandler = function (model, event) {
         var oldValue = self.changeCategorySelectHandler.oldValue,
             value = event.target.value,
@@ -1083,6 +1090,8 @@ function DEControlsModel() {
 
         self.productRootCategory().categories(mappedData);
         self.productCurrentCategory(self.productRootCategory());
+
+        setProductCategoryParrent(self.productRootCategory());
     };
 
     self.selectProductItem = function (item) {
@@ -1144,7 +1153,7 @@ function DEControlsModel() {
     };
 
     self.backToCategoriesList = function () {
-        self.productCurrentCategory(self.productRootCategory());
+        self.productCurrentCategory(self.productCurrentCategory().parentCategory || self.productRootCategory());
     };
 
     //search
