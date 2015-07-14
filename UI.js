@@ -899,8 +899,8 @@ function DEControlsModel() {
             } else {
                 group.push(colors[i]);
                 k += 1;
+                i += 1;
             }
-            i += 1;
         }
         if (group.length !== 0) {
             groupsList.push({items: group});
@@ -1843,9 +1843,9 @@ function DEControlsModel() {
         self.colorsList(self.strokeColors());
     };
 
-    self.getStrokeColor = function (value) {
+    self.getTextColorValue = function (value) {
         if (value === 'none') {
-            return '#000';
+            return '#A3A2A4';
         }
 
         if (value === '#FFFFFF') {

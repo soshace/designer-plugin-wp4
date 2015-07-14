@@ -119,7 +119,7 @@
                             style: {
                                 'background-color': value,
                                 'color': value,
-                                'border-color': value == '#FFFFFF' ? '#A3A2A4': value
+                                'border-color': value.toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': value
                                 },
                             title: name,
                             click: $root.colorSelected,
@@ -128,7 +128,7 @@
                             }
                         ">
                             <svg
-                                data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value.toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': value}"
                                 id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                 width="24px" height="24px" version="1.1"
                                 style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -174,9 +174,9 @@
                         </div>
                         <div class="font-select-color-picker">
                             <a class="text-controls-choose-color" href="#" data-bind="style: {
-                                'background-color': selectedLetteringVO().formatVO().fillColor,
-                                'color': selectedLetteringVO().formatVO().fillColor,
-                                'border-color': selectedLetteringVO().formatVO().fillColor
+                                'background-color': selectedLetteringVO().formatVO().fillColor() === 'none' ? '#FFFFFF': selectedLetteringVO().formatVO().fillColor,
+                                'color': $root.getTextColorValue(selectedLetteringVO().formatVO().fillColor()),
+                                'border-color': $root.getTextColorValue(selectedLetteringVO().formatVO().fillColor())
                                 },
                                  click: toggleFontsColorsList"></a>
                         </div>
@@ -195,9 +195,9 @@
                             <li>
                                 <a href="#" data-bind="
                                     style: {
-                                    'background-color': value,
-                                    'color': value,
-                                    'border-color': value == '#FFFFFF' ? '#A3A2A4': value
+                                        'background-color': value === 'none' ? '#FFFFFF': value,
+                                        'color': $root.getTextColorValue(value),
+                                        'border-color': $root.getTextColorValue(value)
                                     },
                                     title: name,
                                     click: $root.selectFontColor,
@@ -208,7 +208,7 @@
                                     <svg
                                         data-bind="
                                                 visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase(),
-                                                style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}
+                                                style: {fill: $root.getTextColorValue(value)}
                                             "
                                         id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                         width="24px" height="24px" version="1.1"
@@ -270,11 +270,13 @@
                         </div>
                         <div class="text-align-outline__outl-picker">
                             <a class="text-controls-choose-color" href="#" data-bind="style: {
-                                'background-color': selectedLetteringVO().formatVO().strokeColor,
-                                'color': selectedLetteringVO().formatVO().strokeColor,
-                                'border-color': selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': selectedLetteringVO().formatVO().strokeColor
+                                'background-color': selectedLetteringVO().formatVO().strokeColor() === 'none' ? '#FFFFFF': selectedLetteringVO().formatVO().strokeColor,
+                                'color': $root.getTextColorValue(selectedLetteringVO().formatVO().strokeColor()),
+                                'border-color': $root.getTextColorValue(selectedLetteringVO().formatVO().strokeColor())
                                 },
-                                 click: toggleFontsStrokeColorsList"></a>
+                                 click: toggleFontsStrokeColorsList">
+                                <span class="stroke-color-crossed" data-bind="visible: selectedLetteringVO().formatVO().strokeColor() === 'none'"></span>
+                            </a>
                         </div>
                     </div>
                     <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
@@ -293,7 +295,7 @@
                                             style: {
                                                 'background-color': value,
                                                 'color': value,
-                                                'border-color': $root.getStrokeColor(value)
+                                                'border-color': $root.getTextColorValue(value)
                                                 },
                                                 title: name,
                                                 click: $root.selectFontStrokeColor,
@@ -305,7 +307,7 @@
                                             data-bind="
                                                 visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase(),
                                                 style: {
-                                                        fill: $root.getStrokeColor(value)
+                                                        fill: $root.getTextColorValue(value)
                                                     }
                                                 "
                                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
@@ -416,24 +418,27 @@
 
                                 <div class="font-select-color-picker">
                                     <button class="text-controls-choose-color" data-bind="
-                                    enable: selectedLetteringVO().text().length > 0,
-                                    style: {
-                                'background-color': selectedLetteringVO().formatVO().fillColor,
-                                'color': selectedLetteringVO().formatVO().fillColor,
-                                'border-color': selectedLetteringVO().formatVO().fillColor
-                                },
-                                 click: showFontsColorsListMobile"></button>
+                                            enable: selectedLetteringVO().text().length > 0,
+                                            style: {
+                                                'background-color': selectedLetteringVO().formatVO().fillColor() === 'none' ? '#FFFFFF': selectedLetteringVO().formatVO().fillColor,
+                                                'color': $root.getTextColorValue(selectedLetteringVO().formatVO().fillColor()),
+                                                'border-color': $root.getTextColorValue(selectedLetteringVO().formatVO().fillColor())
+                                            },
+                                            click: showFontsColorsListMobile">
+                                    </button>
                                 </div>
 
                                 <div class="text-align-outline__outl-picker">
                                     <button class="text-controls-choose-color" data-bind="
-                                    enable: selectedLetteringVO().text().length > 0,
-                                    style: {
-                                'background-color': selectedLetteringVO().formatVO().strokeColor,
-                                'color': selectedLetteringVO().formatVO().strokeColor,
-                                'border-color': selectedLetteringVO().formatVO().strokeColor
-                                },
-                                 click: showFontsStrokeColorsListMobile"></button>
+                                                enable: selectedLetteringVO().text().length > 0,
+                                                style: {
+                                                    'background-color': selectedLetteringVO().formatVO().strokeColor() === 'none' ? '#FFFFFF': selectedLetteringVO().formatVO().strokeColor,
+                                                    'color': $root.getTextColorValue(selectedLetteringVO().formatVO().strokeColor()),
+                                                    'border-color': $root.getTextColorValue(selectedLetteringVO().formatVO().strokeColor())
+                                                    },
+                                                click: showFontsStrokeColorsListMobile">
+                                        <span class="stroke-color-crossed" data-bind="visible: selectedLetteringVO().formatVO().strokeColor() === 'none'"></span>
+                                    </button>
                                 </div>
                                 <div class="text-tab__title__button">
                                     <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
@@ -701,7 +706,7 @@
                                     style: {
                                         'background-color': value,
                                         'color': value,
-                                        'border-color': value == '#FFFFFF' ? '#A3A2A4': value
+                                        'border-color': value.toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': value
                                         },
                                     title: name,
                                     click: $root.colorSelected,
@@ -710,7 +715,7 @@
                                     }
                                 ">
                                     <svg
-                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value.toLocaleLowerCase() === '#ffffff' ? '#A3A2A4': value}"
                                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                             width="24px" height="24px" version="1.1"
                                             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -970,7 +975,7 @@
                                             style: {
                                                 'background-color': value,
                                                 'color': value,
-                                                'border-color': value
+                                                'border-color': value.toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': value
                                                 },
                                                 title: name,
                                                 click: $root.colorSelected,
@@ -979,7 +984,7 @@
                                             }
                                         ">
                                         <svg
-                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value.toLocaleLowerCase() == '#ffffff' ? '#A3A2A4': value}"
                                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
                                             xml:space="preserve" width="24px" height="24px" version="1.1"
                                             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -1006,7 +1011,7 @@
                                             style: {
                                                 'background-color': value,
                                                 'color': value,
-                                                'border-color': value
+                                                'border-color': $root.getTextColorValue(value)
                                                 },
                                                 title: name,
                                                 click: $root.colorSelected,
@@ -1015,7 +1020,7 @@
                                             }
                                     ">
                                         <svg
-                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedTextColor(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            data-bind="visible: value.toLocaleLowerCase() === $root.selectedTextColor(), style: {fill: $root.getTextColorValue(value)}"
                                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
                                             xml:space="preserve" width="24px" height="24px" version="1.1"
                                             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -1027,6 +1032,8 @@
                                                   </g>
                                               </g>
                                         </svg>
+                                        <span class="colors-palette__crossed"
+                                              data-bind="visible: $data.value.toLocaleLowerCase() === 'none'"></span>
                                     </a>
                                 </li>
                             </ul>

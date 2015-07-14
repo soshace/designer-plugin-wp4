@@ -108,7 +108,7 @@ input, select, button, textarea {
 }
 
 #canvas {
-    /*margin: 0 auto;*/
+    margin: 5px auto;
 }
 
 #canvas-container {
@@ -128,7 +128,7 @@ input, select, button, textarea {
 
 #bottom-menus {
     width: 295px;
-    margin: 10px 0 0 0;
+    margin: 10px auto 0 auto;
     height: 40px;
     font: 14px Raleway;
     color: #C7C7C7;
@@ -274,10 +274,15 @@ input, select, button, textarea {
     border-radius: 12px;
     border: 1px solid;
     text-align: center;
+    position: relative;
 }
 
 #bottom-menus #colors-palette-carousel .colors-palette-group li a.selected {
     background-color: #fff !important;
+}
+
+#bottom-menus #colors-palette-carousel .colors-palette-group li a.selected .colors-palette__crossed {
+    display: none !important;
 }
 
 #bottom-menus #colors-palette-carousel .colors-palette-group li a.selected {
@@ -1561,17 +1566,18 @@ input, select, button, textarea {
     }
 
     #canvas-container {
-        width: 296px;
+        width: 320px;
         height: 296px;
+        margin-left: -12px;
     }
 
     #canvas-container > div:first-child {
-        width: 296px !important;
+        width: 320px !important;
         height: 296px !important;
     }
 
     #canvas-container > div > svg {
-        width: 296px;
+        width: 320px;
         height: 296px;
     }
 }
@@ -1595,17 +1601,17 @@ input, select, button, textarea {
     }
 
     #canvas-container {
-        width: 296px;
+        width: 320px;
         height: 296px;
     }
 
     #canvas-container > div:first-child {
-        width: 296px !important;
+        width: 320px !important;
         height: 296px !important;
     }
 
     #canvas-container > div > svg {
-        width: 296px;
+        width: 320px;
         height: 296px;
     }
 
@@ -1839,6 +1845,7 @@ input, select, button, textarea {
 }
 
 .text-controls-choose-color {
+    position: relative;
     width: 30px;
     height: 30px;
     display: inline-block;
@@ -1863,10 +1870,11 @@ input, select, button, textarea {
 
 .colors-palette__crossed {
     position: absolute;
+    display: block;
     left: 0;
     top: 11px;
     width: 100%;
-    border-top: 1px solid black;
+    border-top: 1px solid #A3A2A4;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
@@ -2009,6 +2017,18 @@ input, select, button, textarea {
     position: relative;
     left: 6px;
     top: -4px;
+}
+
+.text-align-outline__outl-picker .stroke-color-crossed {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 14px;
+    width: 100%;
+    border-top: 1px solid #A3A2A4;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
 }
 
 .font-list, .fonts-colors {
