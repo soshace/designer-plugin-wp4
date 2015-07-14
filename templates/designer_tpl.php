@@ -241,7 +241,7 @@
                     </div>
                     <div data-bind="visible: textToolsIsVisible" class="text-align-outline clearfix">
                         <div class="text-tab-label text-align-outline__al-lbl">ALIGN TEXT</div>
-                        <div data-toggle="buttons" class="text-align-outline__al"
+                        <div class="text-align-outline__al"
                              data-bind="radio: selectedLetteringVO().formatVO().textAlign">
                             <label id="text-align-left-btn" for="text-align-left"
                                    class="text-control-align text-control-align-left text-controls-sprite"
@@ -446,7 +446,7 @@
                                 </div>
                             </div>
                             <div class="clearfix">
-                                <div data-toggle="buttons" class="text-align-outline__al"
+                                <div class="text-align-outline__al"
                                      data-bind="radio: selectedLetteringVO().formatVO().textAlign">
                                     <label id="text-align-left-btn" for="text-align-left"
                                            class="text-control-align text-control-align-left text-controls-sprite"
@@ -454,7 +454,7 @@
                                         <input type="radio" value="left"
                                                data-bind="enable: selectedLetteringVO().text().length > 0"
                                                name="text-align-control"
-                                               id="text-align-left">
+                                               id="text-align-left-m">
                                     </label>
                                     <label id="text-align-center-btn" for="text-align-center"
                                            class="text-control-align text-control-align-center text-controls-sprite"
@@ -462,16 +462,15 @@
                                         <input type="radio" value="center"
                                                data-bind="enable: selectedLetteringVO().text().length > 0"
                                                name="text-align-control"
-                                               id="text-align-center">
+                                               id="text-align-center-m">
                                     </label>
                                     <label id="text-align-right-btn"
                                            class="text-control-align text-control-align-right text-controls-sprite"
-                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}"
-                                           for="text-align-right">
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}">
                                         <input type="radio" value="right"
                                                data-bind="enable: selectedLetteringVO().text().length > 0"
                                                name="text-align-control"
-                                               id="text-align-right">
+                                               id="text-align-right-m">
                                     </label>
                                 </div>
                                 <div class="text-align-show-more">
@@ -894,7 +893,7 @@
                 </div>
                 <!-- Product side switch -->
                 <div id="product-sides-switch"
-                     data-bind="visible: selectedProductVO().locations().length > 1">
+                     data-bind="if: selectedProductVO().locations().length > 1">
                     <ul class="" data-bind="foreach: selectedProductVO().locations">
                         <li data-bind="">
                             <button data-bind="click: $root.selectProductLocation,
