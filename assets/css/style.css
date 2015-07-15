@@ -1600,6 +1600,7 @@ input, select, button, textarea {
     #canvas-container {
         width: 320px;
         height: 296px;
+        margin-left: -12px;
     }
 
     #canvas-container > div:first-child {

@@ -348,10 +348,9 @@ jQuery(function () {
     });*/
     //-----
 
-    //Restore svg viewBox when svg element is resized. Needed for mobile version.
-
     var resizeTimeout;
     function throttler() {
+
         // ignore resize events as long as an actualResizeHandler execution is in the queue
         if ( !resizeTimeout ) {
             resizeTimeout = setTimeout(function() {
@@ -360,8 +359,10 @@ jQuery(function () {
                 // The actualResizeHandler will execute at a rate of 15fps
             }, 66);
         }
+
     }
 
+    //Restore svg viewBox when svg element is resized. Needed for mobile version.
     function onResize() {
 
         if ($(window).width() <= 767 && controlsModel.isMobile() === false) {
@@ -380,13 +381,6 @@ jQuery(function () {
             });
         }
 
-        /*var $main_container = $('#main-container');
-        if ($main_container) {
-            if (window_width <= 768) {
-                ratio = Math.floor(window_width/320);
-                $main_container.css('zoom', ratio);
-            }
-        }*/
     }
 
     $(window).bind('resize', function () {
@@ -394,7 +388,6 @@ jQuery(function () {
         throttler();
     });
 
-    //Initialize viewBox in mobile version
     $(document).bind('DOMSubtreeModified', function () {
         throttler();
     });
