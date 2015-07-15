@@ -1310,7 +1310,7 @@ function DEControlsModel() {
     self.totalQuantity = ko.computed(function () {// summ of all size.qountityes
         var total = 0;
         ko.utils.arrayForEach(self.quantities(), function (q) {
-            total += q.quantity();
+            total += parseInt(q.quantity(), 10);
         });
         return total;
     });

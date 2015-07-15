@@ -112,7 +112,7 @@ function wcla_load_designer_iframe($atts) {
 
     }
     
-    echo '<iframe height="620" width="100%" scrolling="no" style="border:none;overflow:hidden;" src="'.$url.'"></iframe>';
+    echo '<iframe height="' . WCLA_Utilities::get_option('wcla_iframe_height') . '" width="100%" scrolling="no" style="border:none;overflow:hidden;" src="'.$url.'"></iframe>';
 }
 
 add_shortcode('designer', 'wcla_load_designer');

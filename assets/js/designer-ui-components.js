@@ -349,6 +349,19 @@ jQuery(function () {
     //-----
 
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
+
+    var resizeTimeout;
+    function throttler() {
+        // ignore resize events as long as an actualResizeHandler execution is in the queue
+        if ( !resizeTimeout ) {
+            resizeTimeout = setTimeout(function() {
+                resizeTimeout = null;
+                onResize();
+                // The actualResizeHandler will execute at a rate of 15fps
+            }, 66);
+        }
+    }
+
     function onResize() {
             /*ratio = 1;*/
 
@@ -385,12 +398,12 @@ jQuery(function () {
 
     $(window).bind('resize', function () {
         controlsModel.windowWidth($(window).width());
-        onResize();
+        throttler();
     });
 
     //Initialize viewBox in mobile version
     $(document).bind('DOMSubtreeModified', function () {
-        onResize();
+        throttler();
     });
 
     //-----

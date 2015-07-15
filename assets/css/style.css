@@ -12,10 +12,6 @@
     font-style: normal;
 }
 
-#theme-page .theme-page-wrapper {
-    padding: 0 !important;
-}
-
 html, body {
     background-color: #FFFFFF;
     margin: 0 !important;
@@ -63,7 +59,7 @@ input, select, button, textarea {
 .main-subcontainer {
     position: relative;
     width: 940px;
-    height: 597px;
+    height: 600px;
     margin: auto;
 }
 
@@ -96,7 +92,7 @@ input, select, button, textarea {
     position: relative;
     width: auto;
     height: 100%;
-    padding: 0 0 0 5px;
+    padding: 0 12px 0 12px;
 }
 
 .right-column {
@@ -128,7 +124,7 @@ input, select, button, textarea {
 
 #bottom-menus {
     width: 295px;
-    margin: 4px auto 0 auto;
+    margin: 7px auto 0 auto;
     height: 40px;
     font: 14px Raleway;
     color: #C7C7C7;
@@ -1257,7 +1253,7 @@ input, select, button, textarea {
 #product-sizes-tab .product-sizes-list {
     margin: 0 0 10px 0;
     overflow: auto;
-    max-height: 265px;
+    max-height: 240px;
 }
 
 #product-sizes-tab li {
@@ -1387,6 +1383,7 @@ input, select, button, textarea {
 
 #product-sizes-tab .order-total {
     position: absolute;
+    width: 296px;
     left: 12px;
     bottom: 25px;
 }
@@ -1399,7 +1396,7 @@ input, select, button, textarea {
     list-style: none;
     float: left;
     padding: 0 5px 0 5px;
-    margin: 0 40px 0 0;
+    width: 140px;
 }
 
 #product-sizes-tab .order-total li div {
@@ -1587,13 +1584,13 @@ input, select, button, textarea {
 
     .main-container {
         width: 320px;
-        height: 528px;
+        height: 510px;
         margin: 0 auto;
     }
 
     .main-subcontainer {
         width: 320px;
-        height: 528px;
+        height: 510px;
         margin: 0 auto;
     }
 
@@ -1616,13 +1613,17 @@ input, select, button, textarea {
         height: 296px;
     }
 
+    #bottom-menus {
+        margin: 7px 0 0 0;
+    }
+
     .left-column {
         width: 320px;
         position: absolute;
         bottom: 20px;
         height: auto;
         margin: 0 auto;
-        padding: 0 0 0 12px;
+        padding: 0 12px 0 12px;
         float: none;
     }
 
@@ -1631,7 +1632,7 @@ input, select, button, textarea {
         height: auto;
         margin: 0 auto;
         float: none;
-        padding: 0 0 0 12px;
+        padding: 0 12px 0 12px;
     }
 
     .left-column.active-products-tab {
@@ -2202,7 +2203,8 @@ input, select, button, textarea {
     position: relative;
     float: left;
     width: 143px;
-    padding: 5px 15px;
+    padding: 5px;
+    text-align: center;
 }
 
 .font-list__item a {
