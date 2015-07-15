@@ -363,17 +363,10 @@ jQuery(function () {
     }
 
     function onResize() {
-            /*ratio = 1;*/
 
-        /*if (window_width > 768) {
-            $('meta[name=viewport]').attr('content', 'width=device-width');
-        } else {
-            $('meta[name=viewport]').attr('content', 'width=320');
-        }*/
-
-        if ($(window).width() <= 768 && controlsModel.isMobile() === false) {
+        if ($(window).width() <= 767 && controlsModel.isMobile() === false) {
             controlsModel.isMobile(true);
-        } else if ($(window).width() > 768 && controlsModel.isMobile() === true) {
+        } else if ($(window).width() > 767 && controlsModel.isMobile() === true) {
             controlsModel.isMobile(false);
         }
 

@@ -726,7 +726,7 @@ function DEControlsModel() {
             self.resetColorsSelection();
         }
     });
-    self.isMobile = ko.observable(self.windowWidth() <= 768);
+    self.isMobile = ko.observable(self.windowWidth() <= 767);
     //-----
 
     /**
@@ -1100,7 +1100,7 @@ function DEControlsModel() {
                 self.selectProduct(item.obj());
 
                 //----- Switch to colors tab in mobile version
-                if (self.windowWidth() <= 768) {
+                if (self.windowWidth() <= 767) {
                     $('a[href="colors-tab"]').trigger('click');
                 }
                 //-----

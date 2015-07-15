@@ -58,7 +58,7 @@ input, select, button, textarea {
 
 .main-subcontainer {
     position: relative;
-    width: 940px;
+    width: 931px;
     height: 600px;
     margin: auto;
 }
@@ -1548,14 +1548,14 @@ input, select, button, textarea {
     height: 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     .main-container {
         width: 768px;
         margin: 0 auto;
     }
 
     .main-subcontainer {
-        width: 680px;
+        width: 664px;
         margin: 0 auto;
     }
 
@@ -1566,7 +1566,6 @@ input, select, button, textarea {
     #canvas-container {
         width: 320px;
         height: 296px;
-        margin-left: -12px;
     }
 
     #canvas-container > div:first-child {
@@ -1580,7 +1579,7 @@ input, select, button, textarea {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
     .main-container {
         width: 320px;
@@ -2057,7 +2056,7 @@ input, select, button, textarea {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .text-tab-mobile {
         display: block;
     }
@@ -2237,7 +2236,7 @@ input, select, button, textarea {
     background-color: #fff;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .font-list {
         position: absolute;
         top: 47px;
