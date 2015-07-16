@@ -241,8 +241,13 @@ var DEJS;
 
         Tracker.prototype.trackerIcon = function (x, y, action) {
             var _this = this;
-            var w = mobilesafari ? 32 : 21;
-            var addName = mobilesafari ? "_32px" : "";
+
+            //-----
+            /*var w = mobilesafari ? 32 : 21;*/
+            /*var addName = mobilesafari ? "_32px" : "";*/
+            //-----
+            var w = 21;
+            var addName = "";
             var element;
             switch (action) {
                 case DEJS.Action.Resize:

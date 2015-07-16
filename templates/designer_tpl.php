@@ -854,8 +854,7 @@
                             <!-- /ko -->
                         </li>
                     </ul>
-                    <button class="order-place" onclick="onPlaceOrder()"
-                            data-loading-text="Placing order...">
+                    <button id="place-order-btn" class="order-place" onclick="onPlaceOrder()" data-loading-text="Placing order...">
                         ADD TO CART
                     </button>
                 </div>

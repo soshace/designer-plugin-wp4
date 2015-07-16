@@ -853,7 +853,7 @@ input, select, button, textarea {
     position: relative;
     font: 16px Raleway;
     color: #D51622;
-    margin: 20px 0 15px 0;
+    margin: 20px 0 10px 0;
 }
 
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__title a {
@@ -1548,36 +1548,36 @@ input, select, button, textarea {
     height: 0;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
     .main-container {
         width: 768px;
-        height: 510px;
+        height: 520px;
         margin: 0 auto;
     }
 
     .main-subcontainer {
-        width: 664px;
-        height: 510px;
+        width: 768px;
+        height: 520px;
         margin: 0 auto;
     }
 
     .main-subcontainer .designer-footer-caption {
-        left: 358px;
+        left: 462px;
     }
 
     #canvas-container {
-        width: 320px;
-        height: 296px;
+        width: 424px;
+        height: 392px;
     }
 
     #canvas-container > div:first-child {
-        width: 320px !important;
-        height: 296px !important;
+        width: 424px !important;
+        height: 392px !important;
     }
 
     #canvas-container > div > svg {
-        width: 320px;
-        height: 296px;
+        width: 424px;
+        height: 392px;
     }
 }
 
@@ -1585,13 +1585,13 @@ input, select, button, textarea {
 
     .main-container {
         width: 320px;
-        height: 510px;
+        height: 520px;
         margin: 0 auto;
     }
 
     .main-subcontainer {
         width: 320px;
-        height: 510px;
+        height: 520px;
         margin: 0 auto;
     }
 
