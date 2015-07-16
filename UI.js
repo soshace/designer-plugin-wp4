@@ -3070,13 +3070,12 @@ function placeOrderHandler(id) {
     jQuery("#place-order-btn").button("reset");
 }
 
-//TODO: revert before publishing
-//window.onbeforeunload = function () {
-//    if (!controlsModel.status().designSaved) {
-//        return "By exiting this page all design changes will be lost. This window might also popup as a hickup - then just skip it and continue to have fun!";
-//    } else {
-//    }
-//}
+window.onbeforeunload = function () {
+    if (!controlsModel.status().designSaved) {
+        return "By exiting this page all design changes will be lost. This window might also popup as a hickup - then just skip it and continue to have fun!";
+    } else {
+    }
+};
 
 /**
  * MODAL POPUP WINDOWS AND BUTTONS EVENTS END HERE
@@ -3116,7 +3115,6 @@ function userInteract(o) {
  */
 
 var options = {};
-
 options.defaultDesignId = decodeURI((RegExp("design_id" + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]);
 options.defaultProductId = decodeURI((RegExp("product_id" + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]);
 options.defaultGraphicId = decodeURI((RegExp("graphic_id" + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]);
@@ -3124,12 +3122,14 @@ options.defaultGraphicId = decodeURI((RegExp("graphic_id" + '=' + '(.+?)(&|$)').
 options.placeOrderHandler = null;
 
 //designer.debug();
-var defaultDesignId = decodeURI((RegExp("design_id" + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]);
+/*var defaultDesignId = decodeURI((RegExp("design_id" + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]);
 designer.init(
     document.getElementById('canvas-container'),
     AjaxRequest.ajaxurl + "?action=wcla_config_json&productid=" + AjaxRequest.productid + "&design_id=" + AjaxRequest.design_id,
-    controlsUpdateHandler, null/*, placeOrderHandler*/, options
-);
+    controlsUpdateHandler, null*//*, placeOrderHandler*//*, options
+);*/
+
+designer.init(document.getElementById('canvas-container'), AjaxRequest.ajaxurl+"?action=wcla_config_json", controlsUpdateHandler, options);
 
 /**
  * DESIGNER INITALIZATION ENDS HERE

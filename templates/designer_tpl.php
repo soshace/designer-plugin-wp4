@@ -881,7 +881,7 @@
                 </ul>
                 </p>
 
-                <textarea row="4" cols="50" data-bind="text: shareLink"></textarea>
+                <textarea row="4" cols="50" data-bind="text: $root.shareLink()"></textarea>
             </div>
             <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->
         </div>
