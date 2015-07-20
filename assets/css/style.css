@@ -1572,6 +1572,8 @@ input, select, button, textarea {
     }
 
     #canvas-container {
+        -ms-transform: scale(0.722317, 0.722317);
+        -webkit-transform: scale(0.722317, 0.722317);
         transform: scale(0.722317, 0.722317);
     }
 
@@ -1616,6 +1618,8 @@ input, select, button, textarea {
     }
 
     #canvas-container {
+        -ms-transform: scale(0.545145, 0.545145);
+        -webkit-transform: scale(0.545145, 0.545145);
         transform: scale(0.545145, 0.545145);
         margin-left: -12px;
     }

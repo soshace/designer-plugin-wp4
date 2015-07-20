@@ -415,7 +415,7 @@ jQuery(function () {
             }
         }
 
-        var $svg = $('#canvas-container > div > svg:first-child');
+        /*var $svg = $('#canvas-container > div > svg:first-child');
         if ($svg[0]) {
             $svg.each(function () {
                 if ($(this)[0].getAttribute('viewBox') !== '0 0 587 543') {
@@ -423,7 +423,7 @@ jQuery(function () {
                     $(this)[0].setAttribute('viewBox', '0 0 587 543');
                 }
             });
-        }
+        }*/
 
     }
 
