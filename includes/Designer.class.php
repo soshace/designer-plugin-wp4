@@ -242,12 +242,17 @@ class Designer {
     
     wp_register_script("designer_farbtastic", DESIGNER_URL . "assets/js/farbtastic.js", array('jquery'), '2.2.1', false);
     wp_register_script("designer_tooltipster", DESIGNER_URL . "assets/js/jquery.tooltipster.min.js", array('jquery'), '2.2.1', false);
-    
+
     
     
 
     wp_register_script("designer_ui", DESIGNER_URL . "assets/js/designer-ui-components.js", array('jquery'), '2.2.1', true);
     wp_register_script("designer", DESIGNER_URL . "UI.js", array('jquery'), '2.2.2', true);
+
+    //-----
+    wp_register_script("designer_touchswipe", DESIGNER_URL . "assets/js/jquery.touchSwipe.min.js", array('jquery'), '1.6.9', false);
+    wp_enqueue_script('designer_touchswipe');
+    //-----
 
     wp_enqueue_script('designer_knockout');
     wp_enqueue_script('designer_bootstrap');

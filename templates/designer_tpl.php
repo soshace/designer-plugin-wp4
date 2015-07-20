@@ -964,8 +964,9 @@
                     <script type="text/html" id="color-group-template-text">
 
                     </script>-->
-                    <!-- ko if: isMobile() && (currentTab()==='colors-tab' || currentTab()==='graphics-tab') -->
-                    <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="foreach: colorsGroupsList">
+                    <!-- ko if: isMobile()-->
+                    <!--&& (currentTab()==='colors-tab' || currentTab()==='graphics-tab')-->
+                    <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="visible: currentTab()==='colors-tab' || currentTab()==='graphics-tab', foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
@@ -1000,8 +1001,9 @@
                         </li>
                     </ul>
                     <!-- /ko -->
-                    <!-- ko if: isMobile() && currentTab()==='text-tab'-->
-                    <ul class="carousel-inner js-color-group" id="color-group-text" data-bind="foreach: colorsGroupsList">
+                    <!-- ko if: isMobile()-->
+                    <!--&& currentTab()==='text-tab'-->
+                    <ul class="carousel-inner js-color-group" id="color-group-text" data-bind="visible: currentTab()==='text-tab',foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
