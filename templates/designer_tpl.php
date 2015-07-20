@@ -890,19 +890,19 @@
                 <div id="canvas-container">
                     <!-- DesignerJS core goes here -->
                 </div>
-                <!-- Product side switch -->
-                <div id="product-sides-switch"
-                     data-bind="if: selectedProductVO().locations().length > 1">
-                    <ul class="" data-bind="foreach: selectedProductVO().locations">
-                        <li data-bind="">
-                            <button data-bind="click: $root.selectProductLocation,
-                                               css: { active: $data.name == $root.selectedProductLocation() }">
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Product side switch end -->
             </div>
+            <!-- Product side switch -->
+            <div id="product-sides-switch"
+                 data-bind="if: selectedProductVO().locations().length > 1">
+                <ul class="" data-bind="foreach: selectedProductVO().locations">
+                    <li data-bind="">
+                        <button data-bind="click: $root.selectProductLocation,
+                                               css: { active: $data.name == $root.selectedProductLocation() }">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <!-- Product side switch end -->
             <div class="clearfix">
             </div>
             <div id="bottom-menus" class="bottom-menus">
@@ -925,12 +925,12 @@
                         <a id="copy-btn" class="" data-bind="click: copy">Copy</a>
                         <a id="paste-btn" class="" data-bind="click: paste">Paste</a>
                         <!--
-                                                <ul class="nav nav-pills designer-button-bar">
-                                                    <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
-                                                    <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
-                                                    <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
-                                                    <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
-                                                </ul>
+                            <ul class="nav nav-pills designer-button-bar">
+                                <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
+                                <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
+                                <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
+                                <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
+                            </ul>
                         -->
                     </div>
                     <div>

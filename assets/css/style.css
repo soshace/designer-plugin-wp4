@@ -110,6 +110,7 @@ input, select, button, textarea {
 #canvas-container {
     width: 587px;
     height: 543px;
+    -webkit-transform-origin: 0 0;
 }
 
 #canvas-container > div:first-child {
@@ -1565,11 +1566,21 @@ input, select, button, textarea {
         left: 462px;
     }
 
-    #canvas-container {
+    #canvas {
         width: 424px;
         height: 392px;
     }
 
+    #canvas-container {
+        transform: scale(0.722317, 0.722317);
+    }
+
+    /*#canvas-container {
+        width: 424px;
+        height: 392px;
+    }*/
+
+    /*
     #canvas-container > div:first-child {
         width: 424px !important;
         height: 392px !important;
@@ -1578,7 +1589,7 @@ input, select, button, textarea {
     #canvas-container > div > svg {
         width: 424px;
         height: 392px;
-    }
+    }*/
 }
 
 @media screen and (max-width: 767px) {
@@ -1599,12 +1610,23 @@ input, select, button, textarea {
         left: 15px;
     }
 
-    #canvas-container {
+    #canvas {
         width: 320px;
         height: 296px;
+    }
+
+    #canvas-container {
+        transform: scale(0.545145, 0.545145);
         margin-left: -12px;
     }
 
+    /*#canvas-container {
+        width: 320px;
+        height: 296px;
+        margin-left: -12px;
+    }*/
+
+    /*
     #canvas-container > div:first-child {
         width: 320px !important;
         height: 296px !important;
@@ -1613,7 +1635,7 @@ input, select, button, textarea {
     #canvas-container > div > svg {
         width: 320px;
         height: 296px;
-    }
+    }*/
 
     #bottom-menus {
         margin: 7px 0 0 0;

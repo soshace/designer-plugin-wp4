@@ -336,6 +336,31 @@ jQuery(function () {
 
     });
 
+    /*var swipeObj = {
+        location: undefined,
+        x0: 0,
+        y0: 0
+    };
+    $('#canvas').on('touchstart', function (event) {
+        swipeObj.location = controlsModel.selectedProductLocation();
+        swipeObj.x0 = event.originalEvent.changedTouches[0].clientX;
+        swipeObj.y0 = event.originalEvent.changedTouches[0].clientY;
+        console.log(swipeObj);
+    });
+
+    $('#canvas').on('touchmove', function (event) {
+        console.log('touchmove', event.originalEvent);
+        var location = controlsModel.selectedProductLocation();
+        if (swipeObj !== controlsModel.selectedProductLocation()) {
+            return;
+        }
+        console.log(location);
+        for (var i = 0; i < controlsModel.selectedProductVO().locations().length; i++){
+            console.log(controlsModel.selectedProductVO().locations()[i]);
+        }
+        /!*controlsModel.selectProductLocation(controlsModel.selectedProductLocation());*!/
+    });
+*/
     //----- hack to reset colors when graphics element resized or rotated.
     //This is because when object is resized it is recreated
     //and colors palette refers to wrong old object
@@ -363,12 +388,31 @@ jQuery(function () {
     }
 
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
+    var canvasScale = 1;
     function onResize() {
 
         if ($(window).width() <= 767 && controlsModel.isMobile() === false) {
             controlsModel.isMobile(true);
         } else if ($(window).width() > 767 && controlsModel.isMobile() === true) {
             controlsModel.isMobile(false);
+        }
+
+        if ($(window).width() < 768) {
+            if (canvasScale !== 0.545145) {
+                canvasScale = 0.545145;
+                DEJS.Util.canvasScale = canvasScale;
+            }
+
+        } else if ($(window).width() > 1024) {
+            if (canvasScale !== 1) {
+                canvasScale = 1;
+                DEJS.Util.canvasScale = canvasScale;
+            }
+        } else {
+            if (canvasScale !== 0.722317) {
+                canvasScale = 0.722317;
+                DEJS.Util.canvasScale = canvasScale;
+            }
         }
 
         var $svg = $('#canvas-container > div > svg:first-child');

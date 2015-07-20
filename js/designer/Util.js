@@ -304,19 +304,26 @@ var DEJS;
         }
         Util.arrayFilter = arrayFilter;
 
+        //-----
+        Util.canvasScale = 1;
+        //-----
         function eventX(event, container, viewPort) {
+            //-----
             if (mobilesafari && event.touches && event.touches.length)
-                return viewPort.x + (event.touches[0].pageX - offset(container)[0]) * 100 / viewPort.zoom;
+                return (viewPort.x + (event.touches[0].pageX - offset(container)[0]) * 100 / viewPort.zoom) / Util.canvasScale;
             else
-                return viewPort.x + (event.pageX - offset(container)[0]) * 100 / viewPort.zoom;
+                return (viewPort.x + (event.pageX - offset(container)[0]) * 100 / viewPort.zoom) / Util.canvasScale;
+            //-----
         }
         Util.eventX = eventX;
 
         function eventY(event, container, viewPort) {
+            //-----
             if (mobilesafari && event.touches && event.touches.length)
-                return viewPort.y + (event.touches[0].pageY - offset(container)[1]) * 100 / viewPort.zoom;
+                return (viewPort.y + (event.touches[0].pageY - offset(container)[1]) * 100 / viewPort.zoom) / Util.canvasScale;
             else
-                return viewPort.y + (event.pageY - offset(container)[1]) * 100 / viewPort.zoom;
+                return (viewPort.y + (event.pageY - offset(container)[1]) * 100 / viewPort.zoom) / Util.canvasScale;
+            //-----
         }
         Util.eventY = eventY;
 
@@ -549,8 +556,10 @@ var DEJS;
                     var rTouch = new Touch();
                     rTouch.id = sTouch.identifier;
                     rTouch.target = sTouch.target;
-                    rTouch.x = viewPort.x + (sTouch.pageX - offset(container)[0]) * 100 / viewPort.zoom;
-                    rTouch.y = viewPort.y + (sTouch.pageY - offset(container)[1]) * 100 / viewPort.zoom;
+                    //-----
+                    rTouch.x = (viewPort.x + (sTouch.pageX - offset(container)[0]) * 100 / viewPort.zoom) / Util.canvasScale ;
+                    rTouch.y = (viewPort.y + (sTouch.pageY - offset(container)[1]) * 100 / viewPort.zoom) / Util.canvasScale;
+                    //-----
                     res.push(rTouch);
                 }
                 return res;
