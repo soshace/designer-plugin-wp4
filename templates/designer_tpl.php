@@ -895,10 +895,9 @@
             <div id="product-sides-switch"
                  data-bind="if: selectedProductVO().locations().length > 1">
                 <ul class="" data-bind="foreach: selectedProductVO().locations">
-                    <li data-bind="">
-                        <button data-bind="click: $root.selectProductLocation,
-                                               css: { active: $data.name == $root.selectedProductLocation() }">
-                        </button>
+                    <li data-bind="click: $root.selectProductLocation">
+                        <div data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -964,8 +963,7 @@
                     <script type="text/html" id="color-group-template-text">
 
                     </script>-->
-                    <!-- ko if: isMobile()-->
-                    <!--&& (currentTab()==='colors-tab' || currentTab()==='graphics-tab')-->
+                    <!-- ko if: isMobile() && (currentTab()==='colors-tab' || currentTab()==='graphics-tab')-->
                     <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="visible: currentTab()==='colors-tab' || currentTab()==='graphics-tab', foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
@@ -1001,8 +999,7 @@
                         </li>
                     </ul>
                     <!-- /ko -->
-                    <!-- ko if: isMobile()-->
-                    <!--&& currentTab()==='text-tab'-->
+                    <!-- ko if: isMobile() && currentTab()==='text-tab'-->
                     <ul class="carousel-inner js-color-group" id="color-group-text" data-bind="visible: currentTab()==='text-tab',foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">

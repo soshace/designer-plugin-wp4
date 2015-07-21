@@ -336,46 +336,20 @@ jQuery(function () {
 
     });
 
-    $(".carousel-inner").swipe( {
+    $("#colors-palette-carousel").swipe( {
         //Generic swipe handler for all directions
         swipeLeft: function(event, direction, distance, duration, fingerCount) {
-            console.log(1);
-            $(this).parent().carousel('prev');
+            $('#colors-palette-carousel').carousel('prev');
         },
         swipeRight: function() {
-            console.log(2);
-            $(this).parent().carousel('next');
+            $('#colors-palette-carousel').carousel('next');
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
-        threshold: 0
+        threshold: 10,
+        excludedElements: "button, input, select, textarea, .noSwipe",
+        preventDefaultEvents: false
     });
 
-
-        /*var swipeObj = {
-            location: undefined,
-            x0: 0,
-            y0: 0
-        };
-        $('#canvas').on('touchstart', function (event) {
-            swipeObj.location = controlsModel.selectedProductLocation();
-            swipeObj.x0 = event.originalEvent.changedTouches[0].clientX;
-            swipeObj.y0 = event.originalEvent.changedTouches[0].clientY;
-            console.log(swipeObj);
-        });
-
-        $('#canvas').on('touchmove', function (event) {
-            console.log('touchmove', event.originalEvent);
-            var location = controlsModel.selectedProductLocation();
-            if (swipeObj !== controlsModel.selectedProductLocation()) {
-                return;
-            }
-            console.log(location);
-            for (var i = 0; i < controlsModel.selectedProductVO().locations().length; i++){
-                console.log(controlsModel.selectedProductVO().locations()[i]);
-            }
-            /!*controlsModel.selectProductLocation(controlsModel.selectedProductLocation());*!/
-        });
-    */
     //----- hack to reset colors when graphics element resized or rotated.
     //This is because when object is resized it is recreated
     //and colors palette refers to wrong old object

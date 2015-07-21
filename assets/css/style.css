@@ -325,26 +325,25 @@ input, select, button, textarea {
     display: inline-block;
     margin-left: 5px;
     list-style: none;
+    cursor: pointer;
 }
 
 #product-sides-switch ul li:first-child {
     margin-left: 0;
 }
 
-#product-sides-switch ul li button {
+#product-sides-switch ul li div {
     display: block;
     width: 8px;
     height: 8px;
-    text-decoration: none;
     color: #C7C7C7;
     background-color: #C7C7C7;
     border: solid 1px #C7C7C7;
     border-radius: 4px;
     outline: none;
-    cursor: pointer;
 }
 
-#product-sides-switch ul li button.active {
+#product-sides-switch ul li div.active {
     background-color: #7A7A7A;
     border-color: #7A7A7A;
 }
