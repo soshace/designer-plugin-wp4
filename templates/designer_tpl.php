@@ -678,6 +678,9 @@
                         </a>
                     </div>
                     <div class="graphics-color-form__palette" data-bind="visible: selectedIsGraphics">
+                        <div data-bind="visible: selectedGraphicsFormatVO().complexColor().colorizeList().length === 0">
+                            There are no available colours for the graphic
+                        </div>
                         <ul class="colors-classes clearfix"
                             data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
                             <!--<li>
