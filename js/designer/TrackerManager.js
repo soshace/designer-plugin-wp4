@@ -125,6 +125,12 @@ var DEJS;
                 y = this.getTrackerXY(DEJS.Action.Resize, bbox).y;
                 this.resizeEl = this.trackerIcon(x, y, DEJS.Action.Resize);
             }
+            //-----
+            x = this.getTrackerXY(DEJS.Action.BringToFront, bbox).x;
+            y = this.getTrackerXY(DEJS.Action.BringToFront, bbox).y;
+            this.BringToFront = this.trackerIcon(x, y, DEJS.Action.BringToFront);
+            //-----
+
             this.update();
         };
 
@@ -219,6 +225,16 @@ var DEJS;
                 this.moveEl.transform("t" + (x2 - x) + "," + (y2 - y) + "r" + r);
                 DEJS.Util.scaleElement(this.moveEl, 100 / this.trackerManager.zoom, true);
             }
+            //-----
+            if (this.BringToFront) {
+                x = this.getTrackerXY(DEJS.Action.BringToFront, bbox).x;
+                y = this.getTrackerXY(DEJS.Action.BringToFront, bbox).y;
+                x2 = matrix.x(x, y);
+                y2 = matrix.y(x, y);
+                this.BringToFront.transform("t" + (x2 - x) + "," + (y2 - y) + "r" + r);
+                DEJS.Util.scaleElement(this.BringToFront, 100 / this.trackerManager.zoom, true);
+            }
+            //-----
         };
 
         Tracker.prototype.remove = function () {
@@ -237,6 +253,10 @@ var DEJS;
                 this.deleteEl.remove();
             if (this.moveEl)
                 this.moveEl.remove();
+            //-----
+            if (this.BringToFront)
+                this.BringToFront.remove();
+            //-----
         };
 
         Tracker.prototype.trackerIcon = function (x, y, action) {
@@ -261,6 +281,11 @@ var DEJS;
                 case DEJS.Action.Delete:
                     element = this.canvas.image(DEJS.Model.ConfigManager.assetsUrl + "img/tracker/delete" + addName + ".png", x - w / 2, y - w / 2, w, w);
                     break;
+                //-----
+                case DEJS.Action.BringToFront:
+                    element = this.canvas.image(DEJS.Model.ConfigManager.assetsUrl + "img/tracker/bringtofront" + addName + ".png", x - w / 2, y - w / 2, w, w);
+                    break;
+                //-----
                 default:
                     element = this.canvas.ellipse(x, y, w / 2, w / 2).attr({
                         "stroke-width": 1,
@@ -324,6 +349,12 @@ var DEJS;
                 this.onTrackerMouseDown(null, DEJS.Action.Move);
                 return true;
             }
+            //-----
+            if (this.BringToFront && DEJS.Util.isClicked(x, y, this.BringToFront)) {
+                this.onTrackerMouseDown(null, DEJS.Action.BringToFront);
+                return true;
+            }
+            //-----
             return false;
         };
 
@@ -352,6 +383,12 @@ var DEJS;
                     x = bbox.x + bbox.width + padding;
                     y = bbox.y - padding;
                     break;
+                //-----
+                case DEJS.Action.BringToFront:
+                    x = bbox.x - padding;
+                    y = bbox.y - padding;
+                    break;
+                //-----
                 default:
                     x = bbox.x;
                     y = bbox.y;

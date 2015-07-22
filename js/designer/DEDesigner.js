@@ -1382,6 +1382,11 @@ var DEJS;
                 this.stopSelection();
             } else {
                 var el = null;
+                //-----
+                if (this.action == Action.BringToFront) {
+                    DEJS.Model.canvasManager.arrange('front');
+                }
+                //-----
                 if (this.drag) {
                     this.action = Action.Drag;
                 } else {
@@ -2379,6 +2384,9 @@ var DEJS;
         Action.Rotate = "rotate";
         Action.Delete = "delete";
         Action.Drag = "drag";
+        //-----
+        Action.BringToFront = "bringtofront";
+        //-----
     })(DEJS.Action || (DEJS.Action = {}));
     var Action = DEJS.Action;
 
