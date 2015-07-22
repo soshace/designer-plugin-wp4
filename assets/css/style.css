@@ -71,11 +71,36 @@ input, select, button, textarea {
     background-color: #FFFFFF;
 }
 
+#designer-init-preloader .preloader-container {
+    width: 296px;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 #designer-init-preloader .preloader-bar {
     position: absolute;
-    width: 100%;
+    width: 296px;
     top: 40%;
 }
+
+#designer-init-preloader .progress {
+    height: 5px;
+}
+
+#designer-init-preloader .progress-bar {
+    background-image: none;
+    background-color: #C7C7C7;
+}
+
+#designer-init-preloader .preloader-bar .logo {
+    display: inline-block;
+    background: url(../img/designer-ui/zems-logo.svg) no-repeat 0 0;
+    background-size: 88px;
+    width: 88px;
+    height: 40px;
+}
+
 .designer-footer-caption {
     width: 295px;
     position: absolute;
@@ -1622,23 +1647,6 @@ input, select, button, textarea {
         transform: scale(0.545145, 0.545145);
         margin-left: -12px;
     }
-
-    /*#canvas-container {
-        width: 320px;
-        height: 296px;
-        margin-left: -12px;
-    }*/
-
-    /*
-    #canvas-container > div:first-child {
-        width: 320px !important;
-        height: 296px !important;
-    }
-
-    #canvas-container > div > svg {
-        width: 320px;
-        height: 296px;
-    }*/
 
     #bottom-menus {
         margin: 7px 0 0 0;
