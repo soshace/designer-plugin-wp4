@@ -21,6 +21,16 @@ html, body {
 body {
     height: 100%;
     font: 12px Raleway;
+
+    scrollbar-base-color: #C7C7C7;
+    scrollbar-face-color: #C7C7C7;
+    scrollbar-3dlight-color: #C7C7C7;
+    scrollbar-highlight-color: #C7C7C7;
+    scrollbar-track-color: #FFFFFF;
+    scrollbar-arrow-color: #C7C7C7;
+    scrollbar-shadow-color: #C7C7C7;
+    scrollbar-dark-shadow-color: #C7C7C7;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 input, select, button, textarea {
@@ -138,19 +148,19 @@ input, select, button, textarea {
     -webkit-transform-origin: 0 0;
 }
 
-#canvas-container > div:first-child {
+/*#canvas-container > div:first-child {
     width: 587px !important;
     height: 543px !important;
-}
+}*/
 
-#canvas-container > div > svg {
+/*#canvas-container > div > svg {
     width: 587px;
     height: 543px;
-}
+}*/
 
 #bottom-menus {
     width: 295px;
-    margin: 7px auto 0 auto;
+    margin: 5px auto 0 auto;
     height: 40px;
     font: 14px Raleway;
     color: #C7C7C7;
@@ -341,7 +351,7 @@ input, select, button, textarea {
 
 #product-sides-switch {
     width: 295px;
-    height: 10px;
+    height: 12px;
     margin: 0 auto;
     text-align: center;
 }
@@ -357,18 +367,19 @@ input, select, button, textarea {
     margin-left: 0;
 }
 
-#product-sides-switch ul li div {
+#product-sides-switch ul li a {
     display: block;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     color: #C7C7C7;
     background-color: #C7C7C7;
     border: solid 1px #C7C7C7;
-    border-radius: 4px;
+    border-radius: 5px;
     outline: none;
+    text-decoration: none;
 }
 
-#product-sides-switch ul li div.active {
+#product-sides-switch ul li a.active {
     background-color: #7A7A7A;
     border-color: #7A7A7A;
 }
@@ -1601,21 +1612,6 @@ input, select, button, textarea {
         transform: scale(0.722317, 0.722317);
     }
 
-    /*#canvas-container {
-        width: 424px;
-        height: 392px;
-    }*/
-
-    /*
-    #canvas-container > div:first-child {
-        width: 424px !important;
-        height: 392px !important;
-    }
-
-    #canvas-container > div > svg {
-        width: 424px;
-        height: 392px;
-    }*/
 }
 
 @media screen and (max-width: 767px) {
@@ -1639,17 +1635,17 @@ input, select, button, textarea {
     #canvas {
         width: 320px;
         height: 296px;
+        margin: 0 0 0 -12px;
     }
 
     #canvas-container {
         -ms-transform: scale(0.545145, 0.545145);
         -webkit-transform: scale(0.545145, 0.545145);
         transform: scale(0.545145, 0.545145);
-        margin-left: -12px;
     }
 
     #bottom-menus {
-        margin: 7px 0 0 0;
+        margin: 5px 0 0 0;
     }
 
     .left-column {
@@ -1674,7 +1670,7 @@ input, select, button, textarea {
         display: none;
     }
 
-    .left-column.active-colour-tab {
+    .left-column.active-colors-tab {
         display: block;
     }
 
@@ -1710,7 +1706,7 @@ input, select, button, textarea {
         height: auto;
     }
 
-    .right-column.active-colour-tab {
+    .right-column.active-colors-tab {
         height: auto;
     }
 

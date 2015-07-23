@@ -380,10 +380,8 @@ var DEJS;
             Obj.prototype.toFront = function () {
                 if (this.elementLink)
                     this.elementLink.toFront();
-                //-----
-                //if (this.designer)
-                //    this.designer.fixPrintAreaLayer(); //TODO: Dirty! Switch this to event model!
-                //-----
+                if (this.designer)
+                    this.designer.fixPrintAreaLayer(); //TODO: Dirty! Switch this to event model!
                 if (this.designer)
                     this.designer.layerChange(this.elementLink, "toFront");
                 return this;

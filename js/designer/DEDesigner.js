@@ -1384,7 +1384,9 @@ var DEJS;
                 var el = null;
                 //-----
                 if (this.action == Action.BringToFront) {
+                    //ToDo: rebuild according to designer architecture
                     DEJS.Model.canvasManager.arrange('front');
+                    this.deSelect();
                 }
                 //-----
                 if (this.drag) {
