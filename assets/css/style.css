@@ -42,6 +42,7 @@ input, select, button, textarea {
     -webkit-border-radius: 0;
     border-radius: 0;
     border: 1px solid #C7C7C7;
+    outline: none;
 }
 
 ::-webkit-scrollbar {
@@ -146,6 +147,7 @@ input, select, button, textarea {
     width: 587px;
     height: 543px;
     -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
 }
 
 /*#canvas-container > div:first-child {
