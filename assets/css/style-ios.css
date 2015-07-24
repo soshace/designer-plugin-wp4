@@ -1,0 +1,24 @@
+#products-tab .products-list li:hover a span {
+    color: #3F3F3F !important;
+    background-color: #ffffff !important;;
+}
+
+#graphics-tab .graphics-list li:hover a span {
+    color: #3F3F3F !important;
+    background-color: #ffffff !important;
+}
+
+#bottom-menus .bottom-menu__main a:first-child:hover {
+    background: #FFFFFF url(../img/designer-ui/ellipsis.svg) no-repeat -1px 0;
+    background-size: 80px;
+}
+
+#graphics-tab .graphics-upload:hover {
+    background: url(../img/designer-ui/graphics_upload.svg) no-repeat 0 0;
+    background-clip: padding-box;
+    background-size: cover;
+}
+
+.text-tab__title__button .add-text-btn:not([disabled]):hover {
+    background-position: -300px 0;
+}

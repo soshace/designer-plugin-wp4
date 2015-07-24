@@ -350,6 +350,16 @@ jQuery(function () {
         preventDefaultEvents: false
     });
 
+    function isIOS() {
+        return /iPad|iPhone|iPod/i.test(navigator.userAgent);
+    }
+
+    if (isIOS()) {
+        var $link = $('<link/>').attr('rel', 'stylesheet').attr('href', 'http://107.191.56.6/~zemsapparel/wp-content/plugins/designer/assets/css/style-ios.css');
+        $('head').append($link)
+    }
+
+
     //----- hack to reset colors when graphics element resized or rotated.
     //This is because when object is resized it is recreated
     //and colors palette refers to wrong old object
