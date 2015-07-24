@@ -430,9 +430,10 @@
                     </div>
 
                     <!--<h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>-->
-
-                    <div id="text-effect-slider" class="noUiSlider"
-                         data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    <div data-bind="visible: showEffectsSlider()" class="btn-group text-shape-slider-container">
+                        <div id="text-effect-slider" class="noUiSlider text-control-slider"
+                             data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    </div>
                     <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
                     <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
                         <div>

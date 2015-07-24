@@ -2172,6 +2172,9 @@ input, select, button, textarea {
     background-size: 690px;
 }
 
+.text-shape-slider-container .noUi-horizontal {
+    height: 2px;
+}
 
 .font-list, .fonts-colors {
     position: relative;
