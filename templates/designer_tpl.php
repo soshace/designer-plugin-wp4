@@ -231,6 +231,38 @@
                         </ul>
                         <!-- /ko -->
                     </div>
+
+                    <!--<h6 data-bind="visible: showTextEffects()">Text Effects</h6>-->
+                    <!--<div data-bind="visible: showTextEffects()" class="btn-group">-->
+                        <!--<button class="btn btn-default" type="button" id="text-effects-btn" data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span class="caret"></span></button>-->
+                        <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
+                            <!--<span class="caret"></span>-->
+                        <!--</button>-->
+                        <!--<ul class="dropdown-menu" data-bind="foreach: textEffects" style="height: 150px; overflow-y: scroll;">-->
+                            <!--<li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
+                                <!--<a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;<div class="divider"></div>&ndash;&gt;-->
+                    <!--<h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>-->
+                    <!--<div id="text-effect-slider" class="noUiSlider" data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>-->
+                    <!--<div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>-->
+                    <!--<div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">-->
+                        <!--<div>-->
+                            <!--<h6 id="text-form-size-label">Size</h6>-->
+                            <!--<input id="text-width" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }" />-->
+                            <!--<span id="text-form-size-label-seperator">&times;</span>-->
+                            <!--<input id="text-height" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }" />-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--&lt;!&ndash;<label><input id="text-lock-aspect" type="checkbox" data-bind="checked: selectedObjectPropertiesVO().lockScale" /><span>Lock proportions</span></label>&ndash;&gt;-->
+                            <!--<button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
                     <div class="font-list" data-bind="visible: showFontsList">
                         <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
 
@@ -369,26 +401,35 @@
                         </div>
                     </div>
 
-                    <!--<div class="text-tab-title" data-bind="visible: textToolsIsVisible">
+                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
                         Apply a text effect
-                    </div>-->
+                    </div>
 
-                    <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
-                    <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
-                    <!--                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
-                    <!--                        class="caret"></span></button>-->
-                    <!--                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
-                    <!--                    <span class="caret"></span>-->
-                    <!--                </button>-->
-                    <!--                <ul class="dropdown-menu" data-bind="foreach: textEffects"-->
-                    <!--                    style="height: 150px; overflow-y: scroll;">-->
-                    <!--                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
-                    <!--                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
-                    <!--                    </li>-->
-                    <!--                </ul>-->
-                    <!--            </div>-->
+                    <div data-bind="visible: showTextEffects()" class="btn-group text-shape-container">
+                        <div class="text-tab-label">SHAPE</div>
 
-                    <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
+                        <ul data-bind="foreach: textEffects" class="text-shape">
+                            <li data-bind="css: {active: $root.selectedTextEffectVO().name() == $data.name}, attr: { 'class':  'item_' + $index()}, click: $root.selectTextEffect"></li>
+                            <!--<p data-bind="text: $root.selectedTextEffectVO().name()"></p>-->
+                            <!--<p data-bind="text: $data.name"></p>-->
+                        </ul>
+
+
+                        <!--<button class="btn btn-default" type="button" id="text-effects-btn"-->
+                                <!--data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
+                                <!--class="caret"></span></button>-->
+                        <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
+                            <!--<span class="caret"></span>-->
+                        <!--</button>-->
+                        <!--<ul class="dropdown-menu" data-bind="foreach: textEffects"-->
+                            <!--style="height: 150px; overflow-y: scroll;">-->
+                            <!--<li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
+                                <!--<a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    </div>
+
+                    <!--<h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>-->
 
                     <div id="text-effect-slider" class="noUiSlider"
                          data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>

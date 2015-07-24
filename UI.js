@@ -1761,7 +1761,7 @@ function DEControlsModel() {
     });
 
     self.editTextEnabled = ko.computed(function () {
-        return !(self.selectedLetteringVO().isNames() || self.selectedLetteringVO().isNumbers());
+        return !(self.selectedLetteringVO().isNames() || self.selectedLetteringVO().isNumbers()) || self.selectedObjectType() == "none";
     });
 
     self.letterSpacingEnabled = ko.observable(false);

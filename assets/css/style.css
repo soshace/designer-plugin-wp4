@@ -2067,6 +2067,112 @@ input, select, button, textarea {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
 }
 
+.text-shape-container .text-tab-label {
+    float: left;
+    width: 54px;
+    line-height: 7px;
+    margin-top: 25px;
+}
+.text-shape-container .text-shape {
+    float: left;
+    width: 240px;
+    height: 30px;
+    margin-top: 11px;
+}
+
+.text-shape-container .text-shape li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    list-style: none;
+    background-size: 690px;
+    cursor: pointer;
+}
+.text-shape-container .text-shape .item_0 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -90px;
+    background-size: 690px;
+}
+.text-shape-container .text-shape .item_1 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -120px;
+    background-size: 690px;
+}
+.text-shape-container .text-shape .item_2 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -150px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_3 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -180px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_4 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -210px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_5 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -240px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_6 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -270px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_7 {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -300px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_0:hover,
+.text-shape-container .text-shape .item_0.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -90px;
+    background-size: 690px;
+}
+.text-shape-container .text-shape .item_1:hover,
+.text-shape-container .text-shape .item_1.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -330px;
+    background-size: 690px;
+}
+.text-shape-container .text-shape .item_2:hover,
+.text-shape-container .text-shape .item_2.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -360px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_3:hover,
+.text-shape-container .text-shape .item_3.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -390px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_4:hover,
+.text-shape-container .text-shape .item_4.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -420px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_5:hover,
+.text-shape-container .text-shape .item_5.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -450px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_6:hover,
+.text-shape-container .text-shape .item_6.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -480px;
+    background-size: 690px;
+}
+
+.text-shape-container .text-shape .item_7:hover,
+.text-shape-container .text-shape .item_7.active {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -510px;
+    background-size: 690px;
+}
+
+
 .font-list, .fonts-colors {
     position: relative;
 }
@@ -2235,9 +2341,11 @@ input, select, button, textarea {
 .font-list__item {
     position: relative;
     float: left;
-    width: 143px;
-    padding: 5px;
+    width: 139px;
+    /*padding: 5px;*/
     text-align: center;
+    height: 40px;
+    line-height: 40px;
 }
 
 .font-list__item a {
