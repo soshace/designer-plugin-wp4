@@ -1815,6 +1815,12 @@ input, select, button, textarea {
     background-size: 690px;
 }
 
+.text-controls-amount-sprite {
+    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -540px;
+    background-size: 690px;
+    background-position: -540px 0 !important;
+}
+
 .text-control-align {
     width: 30px;
     height: 31px;
@@ -2083,6 +2089,10 @@ input, select, button, textarea {
     height: 30px;
 }
 
+.text-shape-container .text-shape-mobile {
+    width: 264px;
+}
+
 .text-shape-container .text-shape li {
     float: left;
     width: 30px;
@@ -2094,8 +2104,9 @@ input, select, button, textarea {
 }
 .text-shape-container .text-shape .item_0 {
     display: none;
-    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -90px;
-    background-size: 690px;
+    padding-top: 9px;
+    font-weight: bold;
+    color: #7A7A7A;
 }
 .text-shape-container .text-shape .item_1 {
     background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -120px;
@@ -2133,8 +2144,7 @@ input, select, button, textarea {
 
 .text-shape-container .text-shape .item_0:hover,
 .text-shape-container .text-shape .item_0.active {
-    background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -90px;
-    background-size: 690px;
+    color: #D51622;
 }
 .text-shape-container .text-shape .item_1:hover,
 .text-shape-container .text-shape .item_1.active {
@@ -2176,11 +2186,15 @@ input, select, button, textarea {
     background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -510px;
     background-size: 690px;
 }
+.text-shape-container .text-shape-slider {
+    width: 171px !important;
+}
 
 .text-shape-slider-container {
     height: 36px;
     padding-top: 13px;
 }
+
 
 .text-shape-slider-container .text-tab-label {
     float: left;
@@ -2305,8 +2319,14 @@ input, select, button, textarea {
 }
 
 .text-control-effects__show-more {
-    float: right;
-    margin: 33px 5px 0 0;
+    /*float: right;*/
+    /*margin: 33px 5px 0 0;*/
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -35px;
+    left: 263px;
 }
 
 .text-control-group-fx, .text-control-group-resize, .text-tab-label-resize, .text-tab-label-letter-space {

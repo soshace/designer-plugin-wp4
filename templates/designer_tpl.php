@@ -412,7 +412,7 @@
                         <ul data-bind="foreach: textEffects" class="text-shape">
                             <li data-bind="css: {active: $root.selectedTextEffectVO().name() === $data.name() }, itemClassNumber: $index(), click: $root.selectTextEffect"></li>
                         </ul>
-
+                        <button data-bind="click: $root.selectTextEffect">REMOVE</button>
 
                         <!--<button class="btn btn-default" type="button" id="text-effects-btn"-->
                                 <!--data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
@@ -428,7 +428,7 @@
                         <!--</ul>-->
                     </div>
 
-                    <div data-bind="visible: showEffectsSlider() && textToolsIsVisible" class="clearfix text-shape-slider-container">
+                    <div data-bind="if: createEffectsSlider(), visible: showEffectsSlider() && textToolsIsVisible" class="clearfix text-shape-slider-container">
                         <div class="noUiSlider text-transform-slider" data-bind="visible: showEffectsSlider()">
                             <div class="text-tab-label">AMOUNT</div>
                             <div class="text-control-slider">
@@ -555,11 +555,11 @@
                         </div>
                         <div class="text-control-effects__sliders">
                             <div data-bind="visible: textControlResizeActive()">
-                                <div class="clearfix text-transform-slider">
+                                <div class="clearfix text-transform-slider" data-bind="visible: showLetterSpacingSlider()">
                                     <div class="text-tab-label-resize text-controls-shape-sprite"></div>
                                     <div class="text-control-slider">
                                         <div class="noUiSlider"
-                                             data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                                             data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1"></div>
                                     </div>
                                 </div>
                                 <div class="clearfix text-transform-slider" data-bind="visible: showLineLeadingSlider()" >
@@ -570,7 +570,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div data-bind="visible: !textControlResizeActive()">
+                            <div data-bind="visible: !textControlResizeActive()" class="text-shape-container">
+                                <div class="clearfix">
+                                    <ul class="text-shape text-shape-mobile">
+                                        <!-- ko foreach: textEffects -->
+                                        <li data-bind="css: {active: $root.selectedTextEffectVO().name() === $data.name() }, itemClassNumber: $index(), click: $root.selectTextEffect"></li>
+                                        <!-- /ko-->
+                                        <li data-bind="css: {active: $root.selectedTextEffectVO().name() === 'none' }, itemClassNumber: 0, click: $root.selectTextEffect" style="display: block">NONE</li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix text-transform-slider" data-bind="visible: showEffectsSlider()" >
+                                    <div class="text-tab-label-resize text-controls-amount-sprite"></div>
+                                    <div class="text-control-slider text-shape-slider">
+                                        <div class="noUiSlider"
+                                             data-bind="slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
@@ -580,10 +595,10 @@
                         </div>
                     </div>
 
-                    <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
+                    <!--<h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>-->
 
-                    <div id="text-effect-slider" class="noUiSlider"
-                         data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    <!--<div id="text-effect-slider" class="noUiSlider"-->
+                         <!--data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>-->
                     <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
                     <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
                         <div>

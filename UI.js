@@ -1902,7 +1902,7 @@ function DEControlsModel() {
 
     //UI to selected text effect
     self.selectTextEffect = function (effect) {
-        if (effect) {
+        if (effect && effect.max) {
             self.selectedTextEffectVO().inverted(effect.max() < 0);
             self.selectedTextEffectVO().name(effect.name());
             self.selectedTextEffectVO().label(effect.label());
@@ -1975,6 +1975,10 @@ function DEControlsModel() {
 
     self.textAlignEnabled = ko.computed(function () {
         return self.selectedTextEffectVO().name() == "none" || self.selectedTextEffectVO().name() == "arcUp" || self.selectedTextEffectVO().name() == "arcDown";
+    });
+
+    self.createEffectsSlider = ko.computed(function () {
+        return window.innerWidth >= 786;
     });
 
     /**
@@ -2753,7 +2757,7 @@ ko.bindingHandlers.productColorPalette = {
             }
         })
     }
-}
+};
 
 ko.bindingHandlers.slider = {
     init: function (element, valueAccessor, allBindingsAccessor) {
