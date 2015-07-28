@@ -2067,28 +2067,33 @@ input, select, button, textarea {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
 }
 
+.text-shape-container {
+    height: 36px;
+}
+
 .text-shape-container .text-tab-label {
     float: left;
-    width: 54px;
+    width: 65px;
     line-height: 7px;
-    margin-top: 25px;
+    margin-top: 13px;
 }
 .text-shape-container .text-shape {
     float: left;
-    width: 240px;
+    width: 231px;
     height: 30px;
-    margin-top: 11px;
 }
 
 .text-shape-container .text-shape li {
     float: left;
     width: 30px;
     height: 30px;
+    margin-left: 3px;
     list-style: none;
     background-size: 690px;
     cursor: pointer;
 }
 .text-shape-container .text-shape .item_0 {
+    display: none;
     background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -90px;
     background-size: 690px;
 }
@@ -2172,8 +2177,18 @@ input, select, button, textarea {
     background-size: 690px;
 }
 
-.text-shape-slider-container .noUi-horizontal {
-    height: 2px;
+.text-shape-slider-container {
+    height: 36px;
+    padding-top: 13px;
+}
+
+.text-shape-slider-container .text-tab-label {
+    float: left;
+}
+
+.text-shape-slider-container .text-control-slider {
+    float: left;
+    width: 220px;
 }
 
 .font-list, .fonts-colors {

@@ -1761,7 +1761,7 @@ function DEControlsModel() {
     });
 
     self.editTextEnabled = ko.computed(function () {
-        return !(self.selectedLetteringVO().isNames() || self.selectedLetteringVO().isNumbers()) || self.selectedObjectType() == "none";
+        return !(self.selectedLetteringVO().isNames() || self.selectedLetteringVO().isNumbers()) || self.selectedObjectType;
     });
 
     self.letterSpacingEnabled = ko.observable(false);
@@ -1924,7 +1924,9 @@ function DEControlsModel() {
             self.suppressTextUpdate = true;
             self.selectedLetteringVO().formatVO().letterSpacing(0);
             self.suppressTextUpdate = false;
+            console.log('updateTextEffect inside exp');
         }
+        console.log('updateTextEffect');
         self.selectedLetteringVO().formatVO().textEffect(self.selectedTextEffectVO().name());
         self.selectedLetteringVO().formatVO().textEffectValue(self.selectedTextEffectVO().inverted() ? 0 - self.selectedTextEffectVO().value() : self.selectedTextEffectVO().value());
     };
@@ -1950,7 +1952,7 @@ function DEControlsModel() {
             }
             self.selectedTextEffectVO().value(Math.abs(self.selectedLetteringVO().formatVO().textEffectValue()).toFixed(2));
         }
-    }
+    };
 
     self.showTextEffects = ko.computed(function () {
         return self.textEffects().length > 1;
@@ -2616,6 +2618,20 @@ function checkUniqueId(element) {
         element.attr("id", "de-element-id-" + uelementId);
     }
 }
+
+ko.bindingHandlers.itemClassNumber = {
+    init: function (element, valueAccessor) {
+        var $element = jQuery(element),
+            itemNumber = valueAccessor();
+        $element.addClass('item_' + itemNumber);
+    },
+    update: function (element, valueAccessor) {
+        var $element = jQuery(element),
+            itemNumber = valueAccessor();
+        element.className = element.className.replace(/\bitem.*?\b/g, '');
+        $element.addClass('item_' + itemNumber);
+    }
+};
 
 ko.bindingHandlers.checkbox = {
     init: function (element, valueAccessor) {

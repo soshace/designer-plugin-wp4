@@ -166,6 +166,9 @@
                           data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
                           type="text" placeholder="Type here..."></textarea>
                     </div>
+                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
+                        Change the look of your text
+                    </div>
                     <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
                         <div class="text-tab-label font-select-label">
                             SELECT FONT
@@ -186,10 +189,8 @@
                                  click: toggleFontsColorsList"></a>
                         </div>
                     </div>
+
                     <div class="fonts-colors" data-bind="visible: showFontsColorsList">
-                        <div class="text-tab-title">
-                            Change the look of your text
-                        </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsColorsList"></a>
 
@@ -405,13 +406,11 @@
                         Apply a text effect
                     </div>
 
-                    <div data-bind="visible: showTextEffects()" class="btn-group text-shape-container">
+                    <div data-bind="visible: showTextEffects() && textToolsIsVisible" class="btn-group text-shape-container">
                         <div class="text-tab-label">SHAPE</div>
 
                         <ul data-bind="foreach: textEffects" class="text-shape">
-                            <li data-bind="css: {active: $root.selectedTextEffectVO().name() == $data.name}, attr: { 'class':  'item_' + $index()}, click: $root.selectTextEffect"></li>
-                            <!--<p data-bind="text: $root.selectedTextEffectVO().name()"></p>-->
-                            <!--<p data-bind="text: $data.name"></p>-->
+                            <li data-bind="css: {active: $root.selectedTextEffectVO().name() === $data.name() }, itemClassNumber: $index(), click: $root.selectTextEffect"></li>
                         </ul>
 
 
@@ -429,11 +428,16 @@
                         <!--</ul>-->
                     </div>
 
-                    <!--<h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>-->
-                    <div data-bind="visible: showEffectsSlider()" class="btn-group text-shape-slider-container">
-                        <div id="text-effect-slider" class="noUiSlider text-control-slider"
-                             data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    <div data-bind="visible: showEffectsSlider() && textToolsIsVisible" class="clearfix text-shape-slider-container">
+                        <div class="noUiSlider text-transform-slider" data-bind="visible: showEffectsSlider()">
+                            <div class="text-tab-label">AMOUNT</div>
+                            <div class="text-control-slider">
+                                <div class="noUiSlider"
+                                     data-bind=" slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
                     <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
                         <div>
