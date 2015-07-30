@@ -462,12 +462,24 @@ var ComplexColorVO = function (updateHandler, hexValue, name, colorizeList, colo
         }
 
         if (!isNullOrUndefined(obj['colorizeGroupList']) && obj['colorizeGroupList'].length) {
-            var colAr = [];
-            for (var i = 0; i < obj['colorizeGroupList'].length; i++) {
+            var colAr = [],
+                i;
+            for (i = 0; i < obj['colorizeGroupList'].length; i++) {
                 var colEl = new ColorizeElementGroupVO(self.updateHandler);
                 colEl.fromObject(obj['colorizeGroupList'][i]);
                 colAr.push(colEl);
             }
+
+            //// Adding ALL group
+            //var colEl = new ColorizeElementGroupVO(self.updateHandler);
+            //colEl.fromObject(obj['colorizeGroupList'][0]);
+            //colEl.name("all");
+            //colAr.push(colEl);
+            //
+            //console.log('ComplexColorVO');
+            //console.log(obj);
+            //console.log(self.updateHandler);
+
             self.colorizeGroupList(colAr);
         } else {
             self.colorizeGroupList([]);
@@ -558,6 +570,11 @@ var ColorizeElementGroupVO = function (updateHandler, name, classes) {
                 colEl.fromObject(obj['classes'][i]);
                 colAr.push(colEl);
             }
+            //
+            //console.log('ColorizeElementGroupVO');
+            //console.log(obj);
+            //window["obj"] = obj;
+
             self.classes(colAr);
         } else {
             self.classes([]);
@@ -784,8 +801,7 @@ function DEControlsModel() {
 
     //-----to show on colors-tab openning first group, frist class and choosen color
     self.initialColorsSelection = function () {
-        //console.log('-----');
-        //console.time('init');
+        console.log("initialColorsSelection");
         var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
             colorClasses = colorGroup.classes(),
             colorClass = colorClasses[0],
@@ -794,31 +810,19 @@ function DEControlsModel() {
         self.currentColorizeElementGroup(colorGroup.name());
         self.colorClasses(colorClasses);
         self.selectedProductElementColor(colorClass);
-        //console.time('colorslist');
         self.populateObservableArray(self.colorsList, colors);
-        //console.timeEnd('colorslist');
-        //console.time('colorsgroups');
         self.setColorsByGroups(colors);
-        //console.timeEnd('colorsgroups');
-        //console.timeEnd('init');
-        //console.log('+++++');
     };
 
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
-        //console.log('-----');
-        //console.time('reset');
+        console.log("resetColorsSelection");
+
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
-        //console.time('colorslist');
         self.populateObservableArray(self.colorsList, []);
-        //console.timeEnd('colorslist');
-        //console.time('colorsgroups');
         self.setColorsByGroups([]);
-        //console.timeEnd('colorsgroups');
         self.currentColorizeElementGroup('');
-        //console.timeEnd('reset');
-        //console.log('+++++');
     };
     //-----
 
@@ -846,27 +850,18 @@ function DEControlsModel() {
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
-        //console.log('-----');
         event.preventDefault();
 
-        //console.time('select');
         var colorClasses = colorizeElementGroup.classes(),
             colorClass = colorClasses[0],
             colors = colorClass.colors();
 
-        //----- for colorizing current element group
         self.currentColorizeElementGroup(colorizeElementGroup.name());
         self.selectedProductElementColor(colorClass);
         self.colorClasses(colorClasses);
-        //console.time('colorslist');
         self.populateObservableArray(self.colorsList, colors);
-        //console.timeEnd('colorslist');
-        //console.time('colorsgroups');
         self.setColorsByGroups(colors);
-        //console.timeEnd('colorsgroups');
-        //console.timeEnd('select');
-        //console.log('+++++');
-        //-----
+
     };
 
     self.selectColorSubElement = function (colorizeElement, event) {
@@ -925,7 +920,26 @@ function DEControlsModel() {
             return;
         }
 
+        if (self.currentColorizeElementGroup().toLowerCase() === "all") {
+            self.colorAllGroupList(color.value);
+        }
+
         self.selectedProductElementColor().value(color.value);
+    };
+
+    self.colorAllGroupList = function (colorValue) {
+         var colorGroups = self.selectedProductColorVO().colorizeGroupList(),
+             colorClasses,
+             selectedColourClass = self.selectedProductElementColor().name();
+
+        for (var i = 0; i < colorGroups.length-1; i++) {
+            colorClasses = colorGroups[i].classes();
+            for (var j = 0; j < colorClasses.length; j++) {
+                if (colorClasses[j].name() === selectedColourClass) {
+                    colorClasses[j].value(colorValue);
+                }
+            }
+        }
     };
 
     // product's selected size value object
@@ -1924,9 +1938,7 @@ function DEControlsModel() {
             self.suppressTextUpdate = true;
             self.selectedLetteringVO().formatVO().letterSpacing(0);
             self.suppressTextUpdate = false;
-            console.log('updateTextEffect inside exp');
         }
-        console.log('updateTextEffect');
         self.selectedLetteringVO().formatVO().textEffect(self.selectedTextEffectVO().name());
         self.selectedLetteringVO().formatVO().textEffectValue(self.selectedTextEffectVO().inverted() ? 0 - self.selectedTextEffectVO().value() : self.selectedTextEffectVO().value());
     };
@@ -1977,9 +1989,6 @@ function DEControlsModel() {
         return self.selectedTextEffectVO().name() == "none" || self.selectedTextEffectVO().name() == "arcUp" || self.selectedTextEffectVO().name() == "arcDown";
     });
 
-    self.createEffectsSlider = ko.computed(function () {
-        return window.innerWidth >= 786;
-    });
 
     /**
      * TEXT EFFECT END

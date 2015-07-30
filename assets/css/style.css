@@ -70,7 +70,7 @@ input, select, button, textarea {
 .main-subcontainer {
     position: relative;
     width: 931px;
-    height: 600px;
+    height: 620px;
     margin: auto;
 }
 
@@ -162,7 +162,7 @@ input, select, button, textarea {
 
 #bottom-menus {
     width: 295px;
-    margin: 5px auto 0 auto;
+    margin: 15px auto 0 auto;
     height: 40px;
     font: 14px Raleway;
     color: #C7C7C7;
@@ -859,7 +859,7 @@ input, select, button, textarea {
 
 #graphics-tab #graphics-color-form .graphics-color-form__title {
     position: relative;
-    color: red;
+    color: #D51622;
     font-size: 12px;
     margin-bottom: 15px;
 }
@@ -1647,7 +1647,7 @@ input, select, button, textarea {
     }
 
     #bottom-menus {
-        margin: 5px 0 0 0;
+        margin: 15px 0 0 0;
     }
 
     .left-column {
@@ -2073,6 +2073,20 @@ input, select, button, textarea {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
 }
 
+.remove-shape-button {
+    position: relative;
+    margin-left: 8px;
+    color: #7A7A7A;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 9px;
+}
+
+.remove-shape-button:hover {
+    text-decoration: none;
+    color: #D51622;
+}
+
 .text-shape-container {
     height: 36px;
 }
@@ -2083,6 +2097,7 @@ input, select, button, textarea {
     line-height: 7px;
     margin-top: 13px;
 }
+
 .text-shape-container .text-shape {
     float: left;
     width: 231px;
@@ -2106,7 +2121,7 @@ input, select, button, textarea {
     display: none;
     padding-top: 9px;
     font-weight: bold;
-    color: #7A7A7A;
+    color: #C8C8C8;
 }
 .text-shape-container .text-shape .item_1 {
     background: url(../img/designer-ui/text_controls_shape.svg) no-repeat -120px;
@@ -2192,9 +2207,7 @@ input, select, button, textarea {
 
 .text-shape-slider-container {
     height: 36px;
-    padding-top: 13px;
 }
-
 
 .text-shape-slider-container .text-tab-label {
     float: left;

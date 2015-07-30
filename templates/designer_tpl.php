@@ -79,7 +79,7 @@
                                         }
                                 ">
                             <a
-                                data-bind="css: {active: $data.id() == $root.selectedProductVO().id()}, visible: isProduct()">
+                                    data-bind="css: {active: $data.id() == $root.selectedProductVO().id()}, visible: isProduct()">
                                 <img src="" data-bind="attr: { src: thumbUrl, title: name }" alt="">
                                 <span data-bind="text: name"></span>
                             </a>
@@ -162,11 +162,11 @@
                         </div>
                     </div>
                     <div class="text-tab__text">
-                <textarea id="add-text-input"
-                          data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
-                          type="text" placeholder="Type here..."></textarea>
+                        <textarea id="add-text-input"
+                                  data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
+                                  type="text" placeholder="Type here..."></textarea>
                     </div>
-                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
+                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible()">
                         Change the look of your text
                     </div>
                     <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
@@ -235,15 +235,15 @@
 
                     <!--<h6 data-bind="visible: showTextEffects()">Text Effects</h6>-->
                     <!--<div data-bind="visible: showTextEffects()" class="btn-group">-->
-                        <!--<button class="btn btn-default" type="button" id="text-effects-btn" data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span class="caret"></span></button>-->
-                        <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
-                            <!--<span class="caret"></span>-->
-                        <!--</button>-->
-                        <!--<ul class="dropdown-menu" data-bind="foreach: textEffects" style="height: 150px; overflow-y: scroll;">-->
-                            <!--<li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
-                                <!--<a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
+                    <!--<button class="btn btn-default" type="button" id="text-effects-btn" data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span class="caret"></span></button>-->
+                    <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
+                    <!--<span class="caret"></span>-->
+                    <!--</button>-->
+                    <!--<ul class="dropdown-menu" data-bind="foreach: textEffects" style="height: 150px; overflow-y: scroll;">-->
+                    <!--<li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
+                    <!--<a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
+                    <!--</li>-->
+                    <!--</ul>-->
                     <!--</div>-->
 
                     <!--&lt;!&ndash;<div class="divider"></div>&ndash;&gt;-->
@@ -251,20 +251,23 @@
                     <!--<div id="text-effect-slider" class="noUiSlider" data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>-->
                     <!--<div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>-->
                     <!--<div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">-->
-                        <!--<div>-->
-                            <!--<h6 id="text-form-size-label">Size</h6>-->
-                            <!--<input id="text-width" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }" />-->
-                            <!--<span id="text-form-size-label-seperator">&times;</span>-->
-                            <!--<input id="text-height" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }" />-->
-                        <!--</div>-->
-                        <!--<div>-->
-                            <!--&lt;!&ndash;<label><input id="text-lock-aspect" type="checkbox" data-bind="checked: selectedObjectPropertiesVO().lockScale" /><span>Lock proportions</span></label>&ndash;&gt;-->
-                            <!--<button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>-->
-                        <!--</div>-->
+                    <!--<div>-->
+                    <!--<h6 id="text-form-size-label">Size</h6>-->
+                    <!--<input id="text-width" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }" />-->
+                    <!--<span id="text-form-size-label-seperator">&times;</span>-->
+                    <!--<input id="text-height" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }" />-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--&lt;!&ndash;<label><input id="text-lock-aspect" type="checkbox" data-bind="checked: selectedObjectPropertiesVO().lockScale" /><span>Lock proportions</span></label>&ndash;&gt;-->
+                    <!--<button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>-->
+                    <!--</div>-->
                     <!--</div>-->
 
 
                     <div class="font-list" data-bind="visible: showFontsList">
+                        <div class="text-tab-title">
+                            Change the look of your text
+                        </div>
                         <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
 
                         <div class="font-list-wrapper">
@@ -313,7 +316,8 @@
                                 'border-color': $root.getTextColorValue(selectedLetteringVO().formatVO().strokeColor())
                                 },
                                  click: toggleFontsStrokeColorsList">
-                                <span class="stroke-color-crossed" data-bind="visible: selectedLetteringVO().formatVO().strokeColor() === 'none'"></span>
+                                <span class="stroke-color-crossed"
+                                      data-bind="visible: selectedLetteringVO().formatVO().strokeColor() === 'none'"></span>
                             </a>
                         </div>
                     </div>
@@ -341,7 +345,7 @@
                                                     selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
                                                 }
                                             ">
-                                        <svg
+                                    <svg
                                             data-bind="
                                                 visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase(),
                                                 style: {
@@ -404,31 +408,35 @@
 
                     <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
                         Apply a text effect
+                        <a class="remove-shape-button "
+                           data-bind="click: $root.selectTextEffect, visible: showTextEffects() && textToolsIsVisible">REMOVE</a>
                     </div>
 
-                    <div data-bind="visible: showTextEffects() && textToolsIsVisible" class="btn-group text-shape-container">
+                    <div data-bind="visible: showTextEffects() && textToolsIsVisible"
+                         class="btn-group text-shape-container">
                         <div class="text-tab-label">SHAPE</div>
 
                         <ul data-bind="foreach: textEffects" class="text-shape">
                             <li data-bind="css: {active: $root.selectedTextEffectVO().name() === $data.name() }, itemClassNumber: $index(), click: $root.selectTextEffect"></li>
                         </ul>
-                        <button data-bind="click: $root.selectTextEffect">REMOVE</button>
+
 
                         <!--<button class="btn btn-default" type="button" id="text-effects-btn"-->
-                                <!--data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
-                                <!--class="caret"></span></button>-->
+                        <!--data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
+                        <!--class="caret"></span></button>-->
                         <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
-                            <!--<span class="caret"></span>-->
+                        <!--<span class="caret"></span>-->
                         <!--</button>-->
                         <!--<ul class="dropdown-menu" data-bind="foreach: textEffects"-->
-                            <!--style="height: 150px; overflow-y: scroll;">-->
-                            <!--<li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
-                                <!--<a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
-                            <!--</li>-->
+                        <!--style="height: 150px; overflow-y: scroll;">-->
+                        <!--<li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
+                        <!--<a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
+                        <!--</li>-->
                         <!--</ul>-->
                     </div>
 
-                    <div data-bind="if: createEffectsSlider(), visible: showEffectsSlider() && textToolsIsVisible" class="clearfix text-shape-slider-container">
+                    <div data-bind="if: !isMobile(), visible: showEffectsSlider() && textToolsIsVisible"
+                         class="clearfix text-shape-slider-container">
                         <div class="noUiSlider text-transform-slider" data-bind="visible: showEffectsSlider()">
                             <div class="text-tab-label">AMOUNT</div>
                             <div class="text-control-slider">
@@ -488,7 +496,8 @@
                                                     'border-color': $root.getTextColorValue(selectedLetteringVO().formatVO().strokeColor())
                                                     },
                                                 click: showFontsStrokeColorsListMobile">
-                                        <span class="stroke-color-crossed" data-bind="visible: selectedLetteringVO().formatVO().strokeColor() === 'none'"></span>
+                                        <span class="stroke-color-crossed"
+                                              data-bind="visible: selectedLetteringVO().formatVO().strokeColor() === 'none'"></span>
                                     </button>
                                 </div>
                                 <div class="text-tab__title__button">
@@ -555,14 +564,16 @@
                         </div>
                         <div class="text-control-effects__sliders">
                             <div data-bind="visible: textControlResizeActive()">
-                                <div class="clearfix text-transform-slider" data-bind="visible: showLetterSpacingSlider()">
+                                <div class="clearfix text-transform-slider"
+                                     data-bind="visible: showLetterSpacingSlider()">
                                     <div class="text-tab-label-resize text-controls-shape-sprite"></div>
                                     <div class="text-control-slider">
                                         <div class="noUiSlider"
                                              data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1"></div>
                                     </div>
                                 </div>
-                                <div class="clearfix text-transform-slider" data-bind="visible: showLineLeadingSlider()" >
+                                <div class="clearfix text-transform-slider"
+                                     data-bind="visible: showLineLeadingSlider()">
                                     <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
                                     <div class="text-control-slider">
                                         <div class="noUiSlider"
@@ -576,10 +587,12 @@
                                         <!-- ko foreach: textEffects -->
                                         <li data-bind="css: {active: $root.selectedTextEffectVO().name() === $data.name() }, itemClassNumber: $index(), click: $root.selectTextEffect"></li>
                                         <!-- /ko-->
-                                        <li data-bind="css: {active: $root.selectedTextEffectVO().name() === 'none' }, itemClassNumber: 0, click: $root.selectTextEffect" style="display: block">NONE</li>
+                                        <li data-bind="css: {active: $root.selectedTextEffectVO().name() === 'none' }, itemClassNumber: 0, click: $root.selectTextEffect"
+                                            style="display: block">NONE
+                                        </li>
                                     </ul>
                                 </div>
-                                <div class="clearfix text-transform-slider" data-bind="visible: showEffectsSlider()" >
+                                <div class="clearfix text-transform-slider" data-bind="visible: showEffectsSlider()">
                                     <div class="text-tab-label-resize text-controls-amount-sprite"></div>
                                     <div class="text-control-slider text-shape-slider">
                                         <div class="noUiSlider"
@@ -598,7 +611,7 @@
                     <!--<h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>-->
 
                     <!--<div id="text-effect-slider" class="noUiSlider"-->
-                         <!--data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>-->
+                    <!--data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>-->
                     <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
                     <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
                         <div>
@@ -923,7 +936,8 @@
                             <!-- /ko -->
                         </li>
                     </ul>
-                    <button id="place-order-btn" class="order-place" onclick="onPlaceOrder()" data-loading-text="Placing order...">
+                    <button id="place-order-btn" class="order-place" onclick="onPlaceOrder()"
+                            data-loading-text="Placing order...">
                         ADD TO CART
                     </button>
                 </div>
@@ -1007,9 +1021,11 @@
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
-                    <div data-bind="visible: currentTab() === 'text-tab'" class="colors-palette__color">COLOUR SELECTED - <span
-                            data-bind="text: colorSelectedName"></span></div>
-                    <div data-bind="visible: currentTab() !== 'text-tab' && $root.colorName()" class="colors-palette__color">COLOUR SELECTED - <span
+                    <div data-bind="visible: currentTab() === 'text-tab'" class="colors-palette__color">COLOUR SELECTED
+                        - <span
+                                data-bind="text: colorSelectedName"></span></div>
+                    <div data-bind="visible: currentTab() !== 'text-tab' && $root.colorName()"
+                         class="colors-palette__color">COLOUR SELECTED - <span
                             data-bind="text: $root.colorName()"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
@@ -1033,7 +1049,8 @@
 
                     </script>-->
                     <!-- ko if: isMobile() && (currentTab()==='colors-tab' || currentTab()==='graphics-tab')-->
-                    <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="foreach: colorsGroupsList">
+                    <ul class="carousel-inner js-color-group" id="color-group-products"
+                        data-bind="foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
@@ -1069,7 +1086,8 @@
                     </ul>
                     <!-- /ko -->
                     <!-- ko if: isMobile() && currentTab()==='text-tab'-->
-                    <ul class="carousel-inner js-color-group" id="color-group-text" data-bind="foreach: colorsGroupsList">
+                    <ul class="carousel-inner js-color-group" id="color-group-text"
+                        data-bind="foreach: colorsGroupsList">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>

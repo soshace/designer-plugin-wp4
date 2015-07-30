@@ -355,7 +355,7 @@ jQuery(function () {
     }
 
     if (isIOS()) {
-        var $link = $('<link/>').attr('rel', 'stylesheet').attr('href', 'http://107.191.56.6/~zemsapparel/wp-content/plugins/designer/assets/css/style-ios.css');
+        var $link = $('<link/>').attr('rel', 'stylesheet').attr('href', '/~zemsapparel/wp-content/plugins/designer/assets/css/style-ios.css');
         $('head').append($link)
     }
 
