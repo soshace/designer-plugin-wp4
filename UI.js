@@ -144,7 +144,7 @@ var TextEffectVO = function (name, label, value, paramName, min, max, step, inve
     self.max = ko.observable(max);
     self.step = ko.observable(step);
     self.inverted = ko.observable(inverted);
-}
+};
 
 var GraphicsCategoryVO = function (obj) {
     if (isNullOrUndefined(obj)) obj = {};
@@ -470,16 +470,6 @@ var ComplexColorVO = function (updateHandler, hexValue, name, colorizeList, colo
                 colAr.push(colEl);
             }
 
-            //// Adding ALL group
-            //var colEl = new ColorizeElementGroupVO(self.updateHandler);
-            //colEl.fromObject(obj['colorizeGroupList'][0]);
-            //colEl.name("all");
-            //colAr.push(colEl);
-            //
-            //console.log('ComplexColorVO');
-            //console.log(obj);
-            //console.log(self.updateHandler);
-
             self.colorizeGroupList(colAr);
         } else {
             self.colorizeGroupList([]);
@@ -570,10 +560,6 @@ var ColorizeElementGroupVO = function (updateHandler, name, classes) {
                 colEl.fromObject(obj['classes'][i]);
                 colAr.push(colEl);
             }
-            //
-            //console.log('ColorizeElementGroupVO');
-            //console.log(obj);
-            //window["obj"] = obj;
 
             self.classes(colAr);
         } else {
@@ -763,6 +749,8 @@ function DEControlsModel() {
 
     self.selectedProductVO().id.subscribe(function (id) {
         userInteract({selectedProductId: id});
+
+        self.restoreColors();
     });
 
     self.selectedProductElementColor = ko.observable(new ColorizeElementVO());
@@ -801,7 +789,6 @@ function DEControlsModel() {
 
     //-----to show on colors-tab openning first group, frist class and choosen color
     self.initialColorsSelection = function () {
-        console.log("initialColorsSelection");
         var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
             colorClasses = colorGroup.classes(),
             colorClass = colorClasses[0],
@@ -812,19 +799,54 @@ function DEControlsModel() {
         self.selectedProductElementColor(colorClass);
         self.populateObservableArray(self.colorsList, colors);
         self.setColorsByGroups(colors);
+
+        setTimeout(self.restoreColors, 0);
     };
 
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
-        console.log("resetColorsSelection");
-
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
         self.populateObservableArray(self.colorsList, []);
         self.setColorsByGroups([]);
         self.currentColorizeElementGroup('');
+
+        setTimeout(self.restoreColors, 0);
     };
     //-----
+
+    self.colorsStorage = {};
+
+    // colorsStorage example
+    //self.colorsStorage = {"body": {"color1": "#fff000", "color2": "#f55334"}, "collar": {}, "sleeves": {}};
+
+    self.restoreColors = function () {
+        var colorGroups = self.selectedProductColorVO().colorizeGroupList(),
+            colorClasses;
+
+        for (var i = 0; i < colorGroups.length; i++) {
+            if (colorGroups[i].name() in self.colorsStorage) {
+                colorClasses = colorGroups[i].classes();
+                for (var j = 0; j < colorClasses.length; j++) {
+                    if (colorClasses[j].id().slice(-8) in self.colorsStorage[colorGroups[i].name()] ) {
+                        colorClasses[j].value(self.colorsStorage[colorGroups[i].name()][colorClasses[j].id().slice(-8)]);
+                    }
+                }
+            }
+        }
+        self.selectedProductElementColor().value.valueHasMutated();
+    };
+
+    self.addColorToStorage = function (colorValue, gName, cName) {
+        var groupName = gName || self.currentColorizeElementGroup(),
+            className = cName || self.selectedProductElementColor().id().slice(-8)
+            ;
+
+        if (!(groupName in self.colorsStorage)) {
+            self.colorsStorage[groupName] = {};
+        }
+        self.colorsStorage[groupName][className] = colorValue;
+    };
 
     //----- for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
@@ -925,18 +947,29 @@ function DEControlsModel() {
         }
 
         self.selectedProductElementColor().value(color.value);
+
+        //
+        //window["colorsStorage"] = self.colorsStorage;
+        //window["selectedProductElementColor"] = self.selectedProductElementColor();
+        //window["selectedProductColorVO"] = self.selectedProductColorVO();
+        //window["currentColorizeElementGroup"] = self.currentColorizeElementGroup();
+        //window["colorSelectedName"] = self.colorSelectedName();
+        //window["colorGroups"] = self.selectedProductColorVO().colorizeGroupList();
+
+        self.addColorToStorage(color.value);
     };
 
     self.colorAllGroupList = function (colorValue) {
          var colorGroups = self.selectedProductColorVO().colorizeGroupList(),
              colorClasses,
-             selectedColourClass = self.selectedProductElementColor().name();
+             selectedColourClass = self.selectedProductElementColor().id().slice(-8);
 
-        for (var i = 0; i < colorGroups.length-1; i++) {
+        for (var i = 0; i < colorGroups.length; i++) {
             colorClasses = colorGroups[i].classes();
             for (var j = 0; j < colorClasses.length; j++) {
-                if (colorClasses[j].name() === selectedColourClass) {
+                if (colorClasses[j].id().slice(-8) === selectedColourClass) {
                     colorClasses[j].value(colorValue);
+                    self.addColorToStorage(colorValue, colorGroups[i].name(), colorClasses[j].id().slice(-8));
                 }
             }
         }
@@ -1011,6 +1044,8 @@ function DEControlsModel() {
                 label: self.selectedProductSizeVO().label()
             }
         });
+
+
     };
 
     // product's selected location
@@ -1916,6 +1951,12 @@ function DEControlsModel() {
 
     //UI to selected text effect
     self.selectTextEffect = function (effect) {
+        //var currentValue = self.selectedTextEffectVO().value();
+        var currentValue = self.selectedLetteringVO().formatVO().textEffectValue();
+        console.log('selectTextEffect');
+        console.log(self.selectedTextEffectVO().value());
+        console.log(self.selectedLetteringVO().formatVO().textEffectValue());
+
         if (effect && effect.max) {
             self.selectedTextEffectVO().inverted(effect.max() < 0);
             self.selectedTextEffectVO().name(effect.name());
@@ -1924,12 +1965,22 @@ function DEControlsModel() {
             self.selectedTextEffectVO().min(Math.abs(effect.min()));
             self.selectedTextEffectVO().max(Math.abs(effect.max()));
             self.selectedTextEffectVO().step(effect.step());
-            self.selectedTextEffectVO().value(Math.abs(effect.min()).toFixed(2));
+            if ( (currentValue > 0) && (currentValue > effect.max()) || (currentValue < 0) && (currentValue < effect.max()) ) {
+                self.selectedTextEffectVO().value(Math.abs(effect.min()).toFixed(2));
+            } else {
+                self.selectedTextEffectVO().value(Math.abs(currentValue));
+            }
+            //self.selectedTextEffectVO().value(Math.abs(effect.min()).toFixed(2));
         } else {
             self.selectedTextEffectVO().name("none");
             self.selectedTextEffectVO().label("None");
             self.selectedTextEffectVO().value("0");
         }
+
+        console.log(self.selectedTextEffectVO().value());
+        window["effect"] = effect;
+        window["selectedTextEffectVO"] = self.selectedTextEffectVO();
+        window["selectedLetteringVO"] = self.selectedLetteringVO();
     };
 
     //From UI to LetteringVO
@@ -1945,6 +1996,11 @@ function DEControlsModel() {
 
     //From LetteringVO to UI after parseObject
     self.setTextEffect = function () {
+        console.log('setTextEffect');
+        console.log(self.selectedTextEffectVO().value());
+        console.log(self.selectedLetteringVO().formatVO().textEffectValue());
+        var currentValue = self.selectedLetteringVO().formatVO().textEffectValue();
+
         var effectName = self.selectedLetteringVO().formatVO().textEffect();
         if (effectName == 'none') {
             self.selectedTextEffectVO().name('none');
@@ -1960,6 +2016,11 @@ function DEControlsModel() {
                     self.selectedTextEffectVO().max(Math.abs(effect.max()));
                     self.selectedTextEffectVO().step(effect.step());
                     //self.selectedTextEffectVO().value(Math.abs(effect.value()));
+                    if ( (currentValue > 0) && (currentValue > effect.max()) || (currentValue < 0) && (currentValue < effect.max()) ) {
+                        self.selectedTextEffectVO().value(Math.abs(effect.value()));
+                    } else {
+                        self.selectedTextEffectVO().value(Math.abs(currentValue));
+                    }
                 }
             }
             self.selectedTextEffectVO().value(Math.abs(self.selectedLetteringVO().formatVO().textEffectValue()).toFixed(2));
