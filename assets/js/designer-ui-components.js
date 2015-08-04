@@ -29,6 +29,7 @@ var designerUI = {
     },
 
     openTab: function (tabName) {
+        console.log('open tab');
         var $activeTab;
 
         this.closeActiveTab();

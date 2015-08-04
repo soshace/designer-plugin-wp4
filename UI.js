@@ -725,8 +725,13 @@ function DEControlsModel() {
     self.currentTab.subscribe(function(newValue) {
         if (newValue === "colors-tab") {
             self.initialColorsSelection();
+            $('#bottom-menu').removeClass('hide');
+            if (self.isMobile()) {
+                $('.bottom-menu__main, .bottom-menu__ellipsis').addClass('under-palette');
+            }
         } else {
             self.resetColorsSelection();
+            $('.bottom-menu__main, .bottom-menu__ellipsis').removeClass('under-palette');
         }
     });
     self.isMobile = ko.observable(self.windowWidth() <= 767);
@@ -813,6 +818,7 @@ function DEControlsModel() {
 
         setTimeout(self.restoreColors, 0);
     };
+
     //-----
 
     self.colorsStorage = {};
@@ -852,8 +858,9 @@ function DEControlsModel() {
     self.colorsGroupsList = ko.observableArray();
     //----- to hide or show bottom menu/color palette
     self.isBottomColorPaletteShowed = ko.computed(function () {
-        return self.isMobile() && self.colorsGroupsList().length > 0
+        return self.isMobile() && self.colorsGroupsList().length > 0;
     });
+
     self.currentColorizeElementGroup = ko.observable('');
     self.colorName = ko.computed(function () {
         var colorName = '',
@@ -1951,11 +1958,10 @@ function DEControlsModel() {
 
     //UI to selected text effect
     self.selectTextEffect = function (effect) {
-        //var currentValue = self.selectedTextEffectVO().value();
+        //console.log('selectTextEffect');
+        //console.log(self.selectedTextEffectVO().value());
+        //console.log(self.selectedLetteringVO().formatVO().textEffectValue());
         var currentValue = self.selectedLetteringVO().formatVO().textEffectValue();
-        console.log('selectTextEffect');
-        console.log(self.selectedTextEffectVO().value());
-        console.log(self.selectedLetteringVO().formatVO().textEffectValue());
 
         if (effect && effect.max) {
             self.selectedTextEffectVO().inverted(effect.max() < 0);
@@ -1976,11 +1982,11 @@ function DEControlsModel() {
             self.selectedTextEffectVO().label("None");
             self.selectedTextEffectVO().value("0");
         }
-
-        console.log(self.selectedTextEffectVO().value());
-        window["effect"] = effect;
-        window["selectedTextEffectVO"] = self.selectedTextEffectVO();
-        window["selectedLetteringVO"] = self.selectedLetteringVO();
+        //
+        //console.log(self.selectedTextEffectVO().value());
+        //window["effect"] = effect;
+        //window["selectedTextEffectVO"] = self.selectedTextEffectVO();
+        //window["selectedLetteringVO"] = self.selectedLetteringVO();
     };
 
     //From UI to LetteringVO
@@ -1996,9 +2002,9 @@ function DEControlsModel() {
 
     //From LetteringVO to UI after parseObject
     self.setTextEffect = function () {
-        console.log('setTextEffect');
-        console.log(self.selectedTextEffectVO().value());
-        console.log(self.selectedLetteringVO().formatVO().textEffectValue());
+        //console.log('setTextEffect');
+        //console.log(self.selectedTextEffectVO().value());
+        //console.log(self.selectedLetteringVO().formatVO().textEffectValue());
         var currentValue = self.selectedLetteringVO().formatVO().textEffectValue();
 
         var effectName = self.selectedLetteringVO().formatVO().textEffect();
@@ -3069,12 +3075,12 @@ function openGraphicsColorForm() {
     $('a[href="graphics-tab"]').trigger('click');
     controlsModel.colorsTabFormsState('colorForm');
     $('.left-column').addClass('upload-form');
-};
+}
 
 function hideGraphicsColorForm() {
     controlsModel.colorsTabFormsState('addForm');
     $('.left-column').removeClass('upload-form');
-};
+}
 //-----
 
 function onLoadDesignDialogSubmit(event) {
@@ -3152,6 +3158,7 @@ function onPlaceOrder() {
     });
 }
 
+
 function placeOrderHandler(id) {
     if (id && controlsModel.redirectUrl) {
         var serverUrl = "services/order.php?design_id=${design_id}";
@@ -3182,6 +3189,8 @@ function magic2() {
 
 // create controls view model
 var controlsModel = new DEControlsModel();
+window['controlsModel'] = controlsModel;
+
 ko.applyBindings(controlsModel);
 var nnQuantitySynchronizer = new NNQuantitySynchronizer(controlsModel);// add additional properties request for NNQuantitySynchronizer
 

@@ -191,6 +191,9 @@
                     </div>
 
                     <div class="fonts-colors" data-bind="visible: showFontsColorsList">
+                        <div class="text-tab-title">
+                            Change the look of your text
+                        </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsColorsList"></a>
 
@@ -988,37 +991,6 @@
             <div class="clearfix">
             </div>
             <div id="bottom-menus" class="bottom-menus">
-                <div id="bottom-menu" data-bind="css: {hide: isBottomColorPaletteShowed()}">
-                    <div class="bottom-menu__main">
-                        <a class="js-ellipsis-menu"><span></span></a>
-                        <a class="js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
-                            <span>SAVE/SHARE</span>
-                        </a>
-                        <a class="js-designer-tab" href="product-sizes-tab">
-                            <span>ADD SIZES & QTY</span>
-                        </a>
-                    </div>
-                    <div class="bottom-menu__ellipsis hide">
-                        <a class="js-ellipsis-menu"><span></span></a>
-                        <a id="undo-btn" class=""
-                           data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
-                        <a id="redo-btn" class=""
-                           data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a>
-                        <a id="copy-btn" class="" data-bind="click: copy">Copy</a>
-                        <a id="paste-btn" class="" data-bind="click: paste">Paste</a>
-                        <!--
-                            <ul class="nav nav-pills designer-button-bar">
-                                <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
-                                <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
-                                <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
-                                <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
-                            </ul>
-                        -->
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
                     <div data-bind="visible: currentTab() === 'text-tab'" class="colors-palette__color">COLOUR SELECTED
@@ -1141,6 +1113,37 @@
                         <!--<span class="sr-only">Next</span>-->
                     </a>
 
+                </div>
+                <div id="bottom-menu" data-bind="css: {visible: isMobile()}">
+                    <div class="bottom-menu__main">
+                        <a class="js-ellipsis-menu"><span></span></a>
+                        <a class="js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
+                            <span>SAVE/SHARE</span>
+                        </a>
+                        <a class="js-designer-tab" href="product-sizes-tab">
+                            <span>ADD SIZES & QTY</span>
+                        </a>
+                    </div>
+                    <div class="bottom-menu__ellipsis hide">
+                        <a class="js-ellipsis-menu"><span></span></a>
+                        <a id="undo-btn" class=""
+                           data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
+                        <a id="redo-btn" class=""
+                           data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a>
+                        <a id="copy-btn" class="" data-bind="click: copy">Copy</a>
+                        <a id="paste-btn" class="" data-bind="click: paste">Paste</a>
+                        <!--
+                            <ul class="nav nav-pills designer-button-bar">
+                                <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
+                                <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
+                                <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
+                                <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
+                            </ul>
+                        -->
+                    </div>
+                    <div>
+
+                    </div>
                 </div>
             </div>
             <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->

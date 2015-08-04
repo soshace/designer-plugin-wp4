@@ -168,6 +168,11 @@ input, select, button, textarea {
     color: #C7C7C7;
 }
 
+#bottom-menus .under-palette{
+    float: left;
+    margin-top: 15px;
+}
+
 #bottom-menus a {
     cursor: pointer;
     text-decoration: none;
@@ -1620,13 +1625,13 @@ input, select, button, textarea {
 
     .main-container {
         width: 320px;
-        height: 520px;
+        height: 580px;
         margin: 0 auto;
     }
 
     .main-subcontainer {
         width: 320px;
-        height: 520px;
+        height: 580px;
         margin: 0 auto;
     }
 
@@ -1653,8 +1658,8 @@ input, select, button, textarea {
     .left-column {
         width: 320px;
         position: absolute;
-        bottom: 20px;
-        height: auto;
+        bottom: 50px;
+        height: 400px;
         margin: 0 auto;
         padding: 0 12px 0 12px;
         float: none;
@@ -2386,7 +2391,7 @@ input, select, button, textarea {
 }
 
 .font-list-wrapper {
-    padding-top: 32px;
+    /*padding-top: 32px;*/
 }
 
 .font-list__item {
