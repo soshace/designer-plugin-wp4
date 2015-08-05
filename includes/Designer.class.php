@@ -86,15 +86,16 @@ class Designer {
         $wp_styles->queue = array();
 
         wp_enqueue_style('designer_bootstrap', DESIGNER_URL . 'assets/bootstrap/css/bootstrap.css');
-    //   wp_enqueue_style('designer_bootstrap_responsive', DESIGNER_URL . 'assets/bootstrap/css/bootstrap-responsive.css');
-       wp_enqueue_style('designer_nouislider_css', DESIGNER_URL . 'assets/css/jquery.nouislider.min.css');
-       wp_enqueue_style('designer_color_picker', DESIGNER_URL . 'assets/css/colorPicker.css');
+        wp_enqueue_style('designer_tooltipster_noir', DESIGNER_URL . 'dist/css/styles.min.css');
+        wp_enqueue_style('designer_bootstrap_responsive', DESIGNER_URL . 'assets/bootstrap/css/bootstrap-responsive.css');
+//        wp_enqueue_style('designer_nouislider_css', DESIGNER_URL . 'assets/css/jquery.nouislider.min.css');
+//        wp_enqueue_style('designer_color_picker', DESIGNER_URL . 'assets/css/colorPicker.css');
+//
+//        wp_enqueue_style('designer_farbtastic', DESIGNER_URL . 'assets/css/farbtastic.css');
+//        wp_enqueue_style('designer_tooltipster', DESIGNER_URL . 'assets/css/tooltipster.css');
+//        wp_enqueue_style('designer_tooltipster_noir', DESIGNER_URL . 'assets/css/tooltipster-noir.css');
 
-       wp_enqueue_style('designer_farbtastic', DESIGNER_URL . 'assets/css/farbtastic.css');
-       wp_enqueue_style('designer_tooltipster', DESIGNER_URL . 'assets/css/tooltipster.css');
-       wp_enqueue_style('designer_tooltipster_noir', DESIGNER_URL . 'assets/css/tooltipster-noir.css');
-
-       wp_enqueue_style('designer_styles', DESIGNER_URL . 'assets/css/style.css');
+//        wp_enqueue_style('designer_styles', DESIGNER_URL . 'assets/css/style.css');
       wp_enqueue_style('designer_style_fix', DESIGNER_URL . 'styles/fix.css');
 
      //  wp_enqueue_style('designer_fonts', DESIGNER_URL . 'fonts/fonts.css');
@@ -115,164 +116,24 @@ class Designer {
         // add it back into the queue
         wp_enqueue_script('jquery');
     }
-    wp_register_script("designer_knockout", DESIGNER_URL . "lib/knockout-2.2.1.js", array('jquery'), '2.2.1', false);
-    wp_register_script("designer_bootstrap", DESIGNER_URL . "assets/bootstrap/js/bootstrap.js", array('jquery'), '2.2.1', false);
-    wp_register_script("designer_colorpicker", DESIGNER_URL . "assets/js/jquery.colorPicker.js", array('jquery'), '2.2.1', false);
+
+    wp_register_script("allDesigner", DESIGNER_URL . "dist/js/allDesigner.js", array('jquery'), '2.2.2', false);
+    wp_enqueue_script('allDesigner');
+
+
+
     wp_register_script("knockout", DESIGNER_URL . "lib/knockout-2.2.1.js", array('jquery'), '2.2.1', false);
-    wp_register_script("lieveart_libs", DESIGNER_URL . "lib/DELibs.js", array('jquery'), '2.2.1', false);
+    wp_enqueue_script('knockout');
 
-    //wp_register_script("designer_design_libs", DESIGNER_URL . "DesignerJS.js", array('jquery'), '2.2.2', false);
-
-    //-----
-    wp_register_script("designer_trial", DESIGNER_URL . "js/designer/Trial.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_trial');
-
-    wp_register_script("designer_options", DESIGNER_URL . "js/designer/DEOptions.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_options');
-
-    wp_register_script("designer_object_type", DESIGNER_URL . "js/designer/ObjectType.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_object_type');
-
-    wp_register_script("designer_flip_kind", DESIGNER_URL . "js/designer/FlipKind.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_flip_kind');
-
-    wp_register_script("designer_align_side", DESIGNER_URL . "js/designer/AlignSide.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_align_side');
-
-    wp_register_script("designer_events_dispatcher", DESIGNER_URL . "js/designer/events/EventDispatcher.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_events_dispatcher');
-
-    wp_register_script("designer_extend", DESIGNER_URL . "js/designer/extend.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_extend');
-
-    wp_register_script("designer_events", DESIGNER_URL . "js/designer/events/Events.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_events');
-
-    wp_register_script("designer_designer_events", DESIGNER_URL . "js/designer/events/DEEvents.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_designer_events');
-
-    wp_register_script("designer_utils", DESIGNER_URL . "js/designer/Util.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_utils');
-
-    wp_register_script("designer_vo", DESIGNER_URL . "js/designer/vo/ConfigVO.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_vo');
-
-    wp_register_script("designer_design_vo", DESIGNER_URL . "js/designer/vo/DesignVO.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_design_vo');
-
-    wp_register_script("designer_canvas_manager", DESIGNER_URL . "js/designer/CanvasManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_canvas_manager');
-
-    wp_register_script("designer_controls_model", DESIGNER_URL . "js/designer/ControlsModelVO.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_controls_model');
-
-    wp_register_script("designer_config_manager", DESIGNER_URL . "js/designer/ConfigManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_config_manager');
-
-    wp_register_script("designer_controls_manager", DESIGNER_URL . "js/designer/ControlsManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_controls_manager');
-
-    wp_register_script("designer_status_manager", DESIGNER_URL . "js/designer/StatusManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_status_manager');
-
-    wp_register_script("designer_quote_location_vo", DESIGNER_URL . "js/designer/vo/QuoteLocationVO.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_quote_location_vo');
-
-    wp_register_script("designer_design_info_vo", DESIGNER_URL . "js/designer/vo/DesignInfoVO.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_design_info_vo');
-
-    wp_register_script("designer_order_manager", DESIGNER_URL . "js/designer/OrderManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_order_manager');
-
-    wp_register_script("auth_manager", DESIGNER_URL . "js/designer/AuthManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('auth_manager');
-
-    wp_register_script("save_load_manager", DESIGNER_URL . "js/designer/SaveLoadManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('save_load_manager');
-
-    wp_register_script("product_manager", DESIGNER_URL . "js/designer/ProductManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('product_manager');
-
-    wp_register_script("vector_effect", DESIGNER_URL . "js/designer/VectorEffect.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('vector_effect');
-
-    wp_register_script("arc_up", DESIGNER_URL . "js/designer/ArcUp.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('arc_up');
-
-    wp_register_script("text_effects_manager", DESIGNER_URL . "js/designer/TextEffectsManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('text_effects_manager');
-
-    wp_register_script("history_manager", DESIGNER_URL . "js/designer/HistoryManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('history_manager');
-
-    wp_register_script("de_model", DESIGNER_URL . "js/designer/DEModel.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('de_model');
-
-    wp_register_script("font_manager", DESIGNER_URL . "js/designer/FontManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('font_manager');
-
-    wp_register_script("obj", DESIGNER_URL . "js/designer/Obj.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('obj');
-
-    wp_register_script("designer_js", DESIGNER_URL . "js/designer/DesignerJs.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_js');
-
-    wp_register_script("tracker_manager", DESIGNER_URL . "js/designer/TrackerManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('tracker_manager');
-
-    wp_register_script("trial_watermark", DESIGNER_URL . "js/designer/TrialWaterMark.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('trial_watermark');
-
-    wp_register_script("style_vo", DESIGNER_URL . "js/designer/vo/StyleVO.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('style_vo');
-
-    wp_register_script("de_designer", DESIGNER_URL . "js/designer/DEDesigner.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('de_designer');
-
-    wp_register_script("ruler_manager", DESIGNER_URL . "js/designer/RulerManager.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('ruler_manager');
-
-    wp_register_script("designer_design_libs", DESIGNER_URL . "DesignerJS.js", array('jquery'), '2.2.2', false);
-    wp_enqueue_script('designer_design_libs');
-    //-----
+    wp_register_script("designer", DESIGNER_URL . "dist/js/UI.min.js", array('jquery'), '2.2.2', true);
 
 
-    wp_register_script("designer_nouislider", DESIGNER_URL . "assets/js/jquery.nouislider.min.js", array('jquery'), '2.2.1', false);
-    wp_register_script("designer_printarea", DESIGNER_URL . "assets/js/jquery.PrintArea.js", array('jquery'), '2.2.1', false);
-    
-    wp_register_script("designer_farbtastic", DESIGNER_URL . "assets/js/farbtastic.js", array('jquery'), '2.2.1', false);
-    wp_register_script("designer_tooltipster", DESIGNER_URL . "assets/js/jquery.tooltipster.min.js", array('jquery'), '2.2.1', false);
+    wp_register_script("scripts", DESIGNER_URL . "dist/js/scripts.js", array('jquery'), '2.2.2', false);
+    wp_enqueue_script('scripts');
 
-    
-    
-
-    wp_register_script("designer_ui", DESIGNER_URL . "assets/js/designer-ui-components.js", array('jquery'), '2.2.1', true);
-    wp_register_script("designer", DESIGNER_URL . "UI.js", array('jquery'), '2.2.2', true);
-
-    //-----
-    wp_register_script("designer_touchswipe", DESIGNER_URL . "assets/js/jquery.touchSwipe.min.js", array('jquery'), '1.6.9', false);
-    wp_enqueue_script('designer_touchswipe');
-    //-----
-
-    wp_enqueue_script('designer_knockout');
-    wp_enqueue_script('designer_bootstrap');
-
-    wp_enqueue_script('designer_nouislider');
-    
-    wp_enqueue_script('designer_farbtastic');
-    wp_enqueue_script('designer_tooltipster');
-    
-    wp_enqueue_script('designer_colorpicker');
-
-    wp_enqueue_script('designer_printarea');
-
-    
-    //wp_enqueue_script('knockout');
-    wp_enqueue_script('lieveart_libs');
-    wp_enqueue_script('designer_design_libs');
-
-    wp_enqueue_script('designer_ui');
     wp_enqueue_script('designer');
+
+
     wp_localize_script('designer', 'AjaxRequest', array('ajaxurl' => admin_url('admin-ajax.php'), 'pluginurl' => DESIGNER_URL,'productid'=> (int)$_GET["productid"]==0?(int) WCLA_Utilities::get_option('wcla_product_id'):(int)$_GET["productid"],'design_id'=> (int)$_GET["design_id"]==0?0:(string)$_GET["design_id"],'cart_key'=> (int)$_GET["cart_key"]==0?0:(string)$_GET["cart_key"]));
     }
 

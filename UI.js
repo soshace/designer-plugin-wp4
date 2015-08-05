@@ -725,12 +725,16 @@ function DEControlsModel() {
     self.currentTab.subscribe(function(newValue) {
         if (newValue === "colors-tab") {
             self.initialColorsSelection();
+        } else {
+            self.resetColorsSelection();
+        }
+
+        if (newValue === "colors-tab" || newValue === "graphics-tab" || newValue === "text-tab") {
             $('#bottom-menu').removeClass('hide');
             if (self.isMobile()) {
                 $('.bottom-menu__main, .bottom-menu__ellipsis').addClass('under-palette');
             }
         } else {
-            self.resetColorsSelection();
             $('.bottom-menu__main, .bottom-menu__ellipsis').removeClass('under-palette');
         }
     });
