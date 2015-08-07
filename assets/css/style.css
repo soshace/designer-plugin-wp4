@@ -1086,6 +1086,15 @@ input, select, button, textarea {
     font: 13px Raleway;
 }
 
+#numbers-tab .numbers-tab-controls .numbers-tab-info {
+    padding: 35px 5px 0;
+}
+#numbers-tab .numbers-tab-controls p {
+    font-size: 10px !important;
+    color: #C7C7C7!important;
+    margin: 0px !important;
+}
+
 #numbers-tab .numbers-tab-controls button {
     float: left;
     width: 95px;

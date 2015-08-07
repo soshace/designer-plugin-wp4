@@ -829,6 +829,10 @@
                     <button class="js-order-sheet-form" aria-label="Order sheet">
                         Order Sheet
                     </button>
+                    <div class="numbers-tab-info">
+                        <p>Add numbers/names onto your design, position and style.</p>
+                        <p>Don't forget to click on order sheet to fill in the data and sizes.</p>
+                    </div>
                 </div>
                 <div id="order-sheet-form" class="hide">
                     <p>
