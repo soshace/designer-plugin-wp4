@@ -663,8 +663,7 @@
                             <li data-bind="
                                     click: $root.selectGraphicItem,
                                     css: { category: isCategory(),
-                                    image: isImage() },
-                                    style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
+                                    image: isImage() }">
                                 <a data-bind="visible: isImage()">
                                     <img src="#" data-bind="attr: { src: thumb }" alt=""/>
                                     <span data-bind="text: name"></span>
